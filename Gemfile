@@ -14,7 +14,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 
  gem 'bootstrap-material-design', '~> 0.2.2'
- gem "minitest-rails"
+ gem 'minitest-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
