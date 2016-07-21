@@ -194,6 +194,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap-material-design (~> 0.2.2)
+  bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)

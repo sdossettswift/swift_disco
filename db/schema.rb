@@ -10,35 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721013939) do
+ActiveRecord::Schema.define(version: 20160721022541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "matters", force: :cascade do |t|
+    t.string   "cause_number"
+    t.string   "court"
+    t.string   "issues"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "people", force: :cascade do |t|
-    t.string   "last_name"
-    t.string   "first_name"
+    t.string   "name_first"
+    t.string   "name_last"
+    t.string   "name_middle"
     t.string   "dob"
-    t.string   "role"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "cellphone"
-    t.string   "jobtitle"
-    t.string   "employer"
     t.string   "gender"
-    t.string   "image"
-    t.string   "goal"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "roles"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "person_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
