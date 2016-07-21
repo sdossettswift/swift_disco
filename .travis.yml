@@ -1,8 +1,17 @@
 language: ruby
 rvm:
-  - 2.3.1
+- 2.3.1
 addons:
-  postgresql: "9.4"
+  postgresql: '9.4'
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  api_key:
+    secure: CXRYdAr+ug4oVsJorGOiVu9pT2f9oue6CRZDYwxdiMTKI9058YCjJrBQVpT9cg5MDRZaL9ShCWClc/VGTVdFUa/QELng6u6HONQaOTPolF4f8epDlrLxqPMtBe41Tiak5TabHv45WiXlQlQsLVPg5Hm3ligiwYAhlWB+7Jqn7pXBiD3YQ6bjFD2pg7gAngsIc1YqYk70wiXsV8eYDfGk0PfOy9sTdlJQj0ouB6KhAU7tN/rIqsUCV/A5lwKKJ2dnblQkFirQulrdLNFhP6EvarN4RUNo+hRmzkpsvXCSYcCg04wYDw71IlGKjNezaz6oD+hxyolDGYmoFb17IwCBMBKmTBDg/mWrO1E/Bgmx5hr6l5xKu/HpvBPUOmAk7KSmV9sLhtMF9T/h7VDoL8RpI8uMWC2clwJ81RcOF8+Hj4IlWMdaL962zWDzCtkoEG2har+ds/XvU1bdzDQs+9vefynhLWkESncCEjx/U7Ov0xS4WPblKgMw0x0QdpABJS/JEkbMOl1JZL88/OcwHM4BoGw9QpU6D9Cc1MwE1b2E386h/McVdGJwNniY1V0oOjFFcXyZXORd0QZctTQU17acdULXOdTqLN0KTGAI5kGeu6KISon9nu7pIhCad6OvT9Q8IbloynN3bgkYKBmLNjcPak7APkgaTZwRV+vnOZ5CcrI=
+  app: swift-disco
+  on:
+    repo: sdossettswift/swift_disco
+  run:
+    - "rake db:migrate"
