@@ -1,2 +1,41 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="container">
+  <div class="thumbnail">
+    <h1>Create A New Account</h1>
+
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |error| %>
+        <p class="alert alert-danger"><strong><%= error %></strong></p>
+      <% end %>
+    <% end %>
+
+    <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, size: "60x12", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, size: "60x12", class: "form-control" %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.submit class: "btn btn-primary" %>
+        or
+        <%= link_to "Sign In", sign_in_path %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

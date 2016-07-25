@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
 
+  #users
+    get 'register' => 'users#new', as: :new_user
+    post 'users' => 'users#create', as: :create_user
+    get 'users' => 'users#index', as: :users
 
-  get 'people/new'
+  #people
+    get 'people/new'
 
-  get 'sessions/new'
+  #Sessions
+    get 'sign_in' => 'sessions#new', as: :sign_in
+    post 'sign_in' => 'sessions#create'
+    delete 'sign_out' => 'sessions#delete', as: :end_session
+    get 'sign_out' => 'sessions#delete', as: :sign_out
 
-  get 'users/new'
-
-root 'welcome#hello'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'welcome#hello'
 end

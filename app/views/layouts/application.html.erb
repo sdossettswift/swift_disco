@@ -11,8 +11,31 @@
   <body>
     <div class="navbar">
       <nav><h1>Swift Disco</h1></nav>
-
     </div>
+    <div class="container">
+     <header>
+       <%= link_to 'Home', root_path %>
+
+     <% if @current_user %>
+       Hi
+       <%= @current_user.username %>.
+       <%= link_to 'Sign Out', sign_in_path, method: :delete %>
+     <% else %>
+
+       <% end %>
+     </header>
+
+     <% if notice %>
+       <div class="alert alert-info" role="alert">
+         <%= notice %>
+       </div>
+     <% end %>
+
+     <% if alert %>
+       <div class="alert alert-danger" role="alert">
+         <%= alert %>
+       </div>
+     <% end %>
     <%= yield %>
   </body>
 </html>
