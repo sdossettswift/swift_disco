@@ -7,7 +7,7 @@ class UserCanSignInTest < Capybara::Rails::TestCase
 
   test "Can Sign In" do
      visit root_path
-     click_link('Sign In')
+     click_link('sign in')
      fill_in('Username', :with => 'example')
      fill_in('Password', :with => 'example')
      click_button('Sign In')

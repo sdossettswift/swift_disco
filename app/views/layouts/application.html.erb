@@ -11,19 +11,22 @@
   <body>
     <div class="navbar">
       <nav><h1>Swift Disco</h1></nav>
+      <header>
+
+      <div class="nav-2">
+        <% if @current_user %>
+          Hi
+          <%= @current_user.username.upcase %>!<br>
+          <%= link_to 'Sign Out', sign_in_path, method: :delete %><br>
+          <%= link_to 'Home', root_path %>
+        <% else %>
+          <% end %>
+      </div>
+
+      </header>
     </div>
     <div class="container">
-     <header>
-       <%= link_to 'Home', root_path %>
 
-     <% if @current_user %>
-       Hi
-       <%= @current_user.username %>.
-       <%= link_to 'Sign Out', sign_in_path, method: :delete %>
-     <% else %>
-
-       <% end %>
-     </header>
 
      <% if notice %>
        <div class="alert alert-info" role="alert">

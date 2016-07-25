@@ -1,17 +1,13 @@
 <div class="container">
   <div class="well">
     <header>
-      Welcome to Swift Discovery
+      Welcome to Swift Discovery! <hr>
+      <% if @current_user %>
+
+      <% else %>
+        Please <%=link_to "create account", new_user_path%> or  <%=link_to "sign in!", sign_in_path%>
+      <% end %>
+
     </header>
   </div>
-
-</div>
-
-
-<div class="container">
-  <div class="well">
-    <%=link_to "Create Account", new_user_path%> <hr>
-    <%=link_to "Sign In", sign_in_path%>
-  </div>
-
 </div>

@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+
+
+
+  get 'profiles/edit'
+
+  get 'profiles/new' => "profiles#new", as: :new_profile
+  post 'profiles' => 'profiles#create'
+
   #users
     get 'register' => 'users#new', as: :new_user
     post 'users' => 'users#create', as: :create_user
