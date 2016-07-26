@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   get 'profiles/edit'
-
+  get 'profiles' => "profiles#new"
   get 'profiles/new' => "profiles#new", as: :new_profile
   post 'profiles' => 'profiles#create'
 

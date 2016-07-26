@@ -15,8 +15,6 @@
 
       <div class="nav-2">
         <% if @current_user %>
-          Hi
-          <%= @current_user.username.upcase %>!<br>
           <%= link_to 'Sign Out', sign_in_path, method: :delete %><br>
           <%= link_to 'Home', root_path %>
         <% else %>
