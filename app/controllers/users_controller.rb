@@ -13,8 +13,6 @@ class UsersController < ApplicationController
    @user.last_name = params[:user][:last_name]
    @user.maiden_name = params[:user][:maiden_name]
    @user.dob = params[:user][:dob]
-   @user.gender = params [:user][:gender]
-   @user.role = params [:user][:role]
    @user.password_confirmation = params[:user][:password_confirmation]
    if @user.save
      # we should also sign them in
