@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'bootstrap-sass'
  gem 'bootstrap-material-design', '~> 0.2.2'
  gem 'minitest-rails'
+ gem 'simple_form'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

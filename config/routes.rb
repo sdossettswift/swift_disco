@@ -8,10 +8,15 @@ Rails.application.routes.draw do
   get 'profiles/new' => "profiles#new", as: :new_profile
   post 'profiles' => 'profiles#create'
 
+  get 'profiles/:id' => 'profiles#show', as: :show_profile
+  get 'profiles/:id/update' => 'profiles#update', as: :edit_profile
+  patch 'profiles/:id' => 'profiles#update'
+
   #users
     get 'register' => 'users#new', as: :new_user
     post 'users' => 'users#create', as: :create_user
     get 'users' => 'users#index', as: :users
+    get 'users/:id' => 'users#show_profile', as: :user
 
   #people
     get 'people/new'
