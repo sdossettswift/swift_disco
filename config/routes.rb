@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+use_doorkeeper
 
 
   get 'profiles/edit'

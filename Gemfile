@@ -17,6 +17,14 @@ gem 'jbuilder', '~> 2.5'
  gem 'minitest-rails'
  gem 'simple_form'
 
+ gem 'doorkeeper'
+
+gem 'refile', github: "refile/refile", require: 'refile/rails'
+gem 'refile-mini_magick'
+gem 'refile-postgres', '~> 1.4'
+gem "sinatra", github: "sinatra/sinatra", branch: "master"
+gem "rack-protection", github: "sinatra/rack-protection"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
@@ -24,7 +32,7 @@ group :production do
 end
 
 group :test do
-  gem "minitest-rails-capybara"
+  gem 'minitest-rails-capybara'
 end
 
 group :development, :test do
