@@ -4,7 +4,7 @@ class UserCanCreateAcctTest < Capybara::Rails::TestCase
 
   test "Can Sign Up" do
      visit root_path
-     click_link('create account')
+     click_link('Create Account')
      fill_in('Email', :with => 'sarah@example.com')
      fill_in('Username', :with => 'Sarah')
      fill_in('Password', :with => '12345678')
