@@ -21,11 +21,19 @@ ActiveRecord::Schema.define(version: 20160728212405) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "event_type"
-    t.string   "event_description"
-    t.datetime "datetime"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "headline"
+    t.string   "text"
+    t.string   "year"
+    t.string   "month"
+    t.string   "day"
+    t.string   "hour"
+    t.string   "minute"
+    t.string   "caption"
+    t.string   "credit"
+    t.string   "url"
+    t.string   "thumbnail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "matters", force: :cascade do |t|

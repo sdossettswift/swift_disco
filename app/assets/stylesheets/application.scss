@@ -1,12 +1,11 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap-material-design';
-@import "people";
-@import "sessions";
-@import "users";
-@import "welcome";
-@import "profiles";
 
 .nav-2{
   background-color:aqua;
+}
+
+#timeline{
+  height: 75vh;
 }
