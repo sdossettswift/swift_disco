@@ -1,0 +1,2 @@
+module LawOffice::CaseHelper
+end

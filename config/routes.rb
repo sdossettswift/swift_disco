@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'case/new'
+  end
+
+  namespace :admin do
+    get 'case/create'
+  end
+
+  namespace :admin do
+    get 'case/update'
+  end
+
+  namespace :admin do
+    get 'case/show'
+  end
+
 use_doorkeeper
 
 

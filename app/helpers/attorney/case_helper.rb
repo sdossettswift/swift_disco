@@ -1,0 +1,2 @@
+module Attorney::CaseHelper
+end
