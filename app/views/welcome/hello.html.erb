@@ -2,9 +2,9 @@
   <div class="well">
     <header>
       <% if @current_user %>
-      HELLO, <%= @user.username.upcase%>!
+      <h5><HELLO, <%= @user.username.upcase%>!</h5>
       <% else %>
-        Please <%=link_to "create account", new_user_path%> or  <%=link_to "sign in!", sign_in_path%>
+        <h5> Please <%=link_to "create account", new_user_path%> or  <%=link_to "sign in!", sign_in_path%></h5>
       <% end %>
     </header>
   </div>
