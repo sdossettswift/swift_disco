@@ -1,0 +1,39 @@
+
+<div class="list-group">
+    <h5>Attorneys</h5>
+      <% @users.each do |user| %>
+        <div class="list-group-item">
+          <%if user.role == "Attorney"%>
+          <%= user.username%>
+          <%else%>
+          <%end%>
+        </div>
+      <% end %>
+      <h5>Clients</h5>
+        <% @users.each do |user| %>
+          <div class="list-group-item">
+            <%if user.role == "Client"%>
+            <%= user.username%>
+            <%else%>
+            <%end%>
+          </div>
+        <% end %>
+        <h5>Paralegals</h5>
+          <% @users.each do |user| %>
+            <div class="list-group-item">
+              <%if user.role == "Law Office"%>
+              <%= user.username%>
+              <%else%>
+              <%end%>
+            </div>
+          <% end %>
+          <h5>Admins</h5>
+            <% @users.each do |user| %>
+              <div class="list-group-item">
+                <%if user.role == "Admin"%>
+                <%= user.username%>
+                <%else%>
+                <%end%>
+              </div>
+            <% end %>
+</div>

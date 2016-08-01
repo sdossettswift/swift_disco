@@ -1,6 +1,6 @@
-@import "materialize/components/color";
-$primary-color: color("teal", "lighten-2") !default;
-@import 'materialize';
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-material-design';
   body {
     display: flex;
     min-height: 85vh;

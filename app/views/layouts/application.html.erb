@@ -12,7 +12,7 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Swift Discovery</a>
+        <a href="/" class="brand-logo">Swift Discovery</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
            <%if @current_user%>
@@ -23,16 +23,6 @@
             <li><%=link_to 'Sign In', sign_in_path%></li>
             <li><%=link_to 'Create Account', new_user_path%></li>
             <%end%>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <%if @current_user%>
-           <li><%= link_to "Add Event", new_event_path%></li>
-           <li><%= link_to "Add Document", root_path%></li>
-           <li><%= link_to "Sign Out", sign_out_path%></li>
-           <%else%>
-           <li><%=link_to 'Sign In', sign_in_path%></li>
-           <li><%=link_to 'Create Account', new_user_path%></li>
-           <%end%>
         </ul>
       </div>
     </nav>
@@ -66,6 +56,3 @@
   </body>
 
 </html>
-<script type="text/javascript">
-    $(".button-collapse").sideNav();
-</script>

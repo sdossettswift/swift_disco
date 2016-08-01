@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
 use_doorkeeper
 
+get 'roles/all' => 'roles#all', as: :all_users_by_role
 
   get 'profiles/edit'
   get 'profiles' => "profiles#new"
@@ -27,6 +28,14 @@ use_doorkeeper
   get 'profiles/:id' => 'profiles#show', as: :show_profile
   get 'profiles/:id/update' => 'profiles#update', as: :edit_profile
   patch 'profiles/:id' => 'profiles#update'
+
+  #matters
+  post 'matters' => 'matters#create'
+  get 'matters/new' => 'matters#new', as: :new_matter
+  get 'matters/:id' => 'matters#show', as: :matter
+  get 'matters/:id/edit' => 'matters#edit', as: :edit_matter
+  delete 'matters/:id' => 'matters#delete'
+  patch 'matters/:id' => 'matters#update'
 
   #events
     post 'events' => 'events#create'
@@ -45,7 +54,7 @@ use_doorkeeper
   patch 'api/events/:id' => 'api/events#update'
   put 'api/events/:id' => 'api/events#update'
   delete 'api/events/:id' => 'api/events#delete'
-  
+
 
   #users
     get 'register' => 'users#new', as: :new_user
