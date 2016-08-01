@@ -1,11 +1,19 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
-@import 'bootstrap-material-design';
-
-.nav-2{
-  background-color:aqua;
-}
-
+ @import "materialize/components/color";
+$primary-color: color("teal", "lighten-2") !default;
+@import 'materialize';
 #timeline{
   height: 75vh;
 }
+
+
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+      

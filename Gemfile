@@ -17,6 +17,9 @@ gem 'jbuilder', '~> 2.5'
  gem 'minitest-rails'
  gem 'simple_form'
 
+ gem 'materialize-sass'
+
+
  gem 'doorkeeper'
 
 gem 'refile', github: "refile/refile", require: 'refile/rails'
