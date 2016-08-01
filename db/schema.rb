@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728212405) do
+ActiveRecord::Schema.define(version: 20160801154058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 20160728212405) do
     t.string   "maiden_name"
     t.string   "gender"
     t.date     "dob"
+    t.string   "role"
   end
 
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
