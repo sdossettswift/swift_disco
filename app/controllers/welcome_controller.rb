@@ -9,5 +9,6 @@ class WelcomeController < ApplicationController
   end
 
   def hello
+    @user = User.find_by id: session[:user_id]
   end
 end

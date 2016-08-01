@@ -1,18 +1,11 @@
 <div class="container">
   <div class="well">
     <header>
-      Welcome to Swift Discovery! <hr>
       <% if @current_user %>
-      <div class="container">
-        <div class="well">
-          <h1>Step 1. <small><%= link_to 'Complete Profile', new_profile_path%></small></h1>
-        </div>
-      </div>
-
+      HELLO, <%= @user.username.upcase%>!
       <% else %>
         Please <%=link_to "create account", new_user_path%> or  <%=link_to "sign in!", sign_in_path%>
       <% end %>
-
     </header>
   </div>
 </div>
