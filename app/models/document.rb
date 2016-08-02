@@ -1,4 +1,4 @@
 class Document < ApplicationRecord
   belongs_to :matter
-  has_attachment :document
+  attachment :document, destroy: false
 end

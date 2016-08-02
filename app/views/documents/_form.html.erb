@@ -1,0 +1,26 @@
+<% if @document.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <% @document.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="well">
+
+<%= form_for @document do |f| %>
+  <div class="form-group">
+    <%= f.label :document %>
+    <%= f.attachment_field :document, as: :file, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-lg btn-primary"%>
+  </div>
+<% end %>
+</div>

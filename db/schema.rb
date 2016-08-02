@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802135402) do
+ActiveRecord::Schema.define(version: 20160802161022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20160802135402) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
   end
 
   create_table "events", force: :cascade do |t|
@@ -149,8 +150,8 @@ ActiveRecord::Schema.define(version: 20160802135402) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "person_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
@@ -158,6 +159,7 @@ ActiveRecord::Schema.define(version: 20160802135402) do
     t.string   "gender"
     t.date     "dob"
     t.string   "role"
+    t.string   "profile_image_id"
   end
 
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
