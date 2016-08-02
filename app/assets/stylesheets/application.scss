@@ -1,12 +1,25 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap-material-design';
-  body {
+@import 'https://fonts.googleapis.com/css?family=Dosis:300,400|Roboto:400,400i';
+  .body {
     display: flex;
-    min-height: 85vh;
+    min-height: 90vh;
     flex-direction: column;
   }
 
-  main {
+  .main {
     flex: 1 0 auto;
   }
+
+  *{
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1{
+        font-family: 'Dosis', sans-serif;
+      }
+.footer{
+  text-align: center;
+  background-color: white;
+}

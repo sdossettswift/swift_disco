@@ -10,44 +10,58 @@
   </head>
 
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo">Swift Discovery</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-           <%if @current_user%>
-            <li><%= link_to "Add Event", new_event_path%></li>
-            <li><%= link_to "Add Document", root_path%></li>
-            <li><%= link_to "Sign Out", sign_out_path%></li>
-            <%else%>
-            <li><%=link_to 'Sign In', sign_in_path%></li>
-            <li><%=link_to 'Create Account', new_user_path%></li>
-            <%end%>
-        </ul>
-      </div>
+    <div class="body">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Swift Discovery</a>
+          </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <%if @current_user%>
+             <li><%= link_to "Add Event", new_event_path%></li>
+             <li><%= link_to "Add Document", root_path%></li>
+             <li><%= link_to "Sign Out", sign_out_path%></li>
+             <%else%>
+             <li><%=link_to 'Sign In', sign_in_path%></li>
+             <li><%=link_to 'Create Account', new_user_path%></li>
+             <%end%>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
     </nav>
-
-
+   <% if notice %>
     <div class="container">
-     <% if notice %>
        <div class="alert alert-info" role="alert">
          <%= notice %>
        </div>
+     </div>
      <% end %>
 
      <% if alert %>
+     <div class="container">
        <div class="alert alert-danger" role="alert">
          <%= alert %>
        </div>
+     </div>
      <% end %>
+
     <%= yield %>
   </div>
-    <footer class="page-footer">
-      <div class="footer-copyright">
-
-
-      S. D O S S E T T  S W I F T
-        © 2016 Copyright
+    <footer>
+      <div class="footer">
+      S. D O S S E T T  S W I F T </br>
+        © 2016 Copyright </br>
         <a class="grey-text text-lighten-4 right" href="#!">SWIFT DISCOVERY: TELL YOUR STORY</a>
 
       </div>
