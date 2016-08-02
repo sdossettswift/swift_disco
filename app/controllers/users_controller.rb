@@ -30,6 +30,7 @@ def show_profile
 end
 
 def profile
+  @user = User.find_by id: session[:user_id]
   @user.first_name = params[:user][:first_name]
   @user.middle_name = params[:user][:middle_name]
   @user.last_name = params[:user][:last_name]
@@ -41,9 +42,9 @@ def profile
   if @user.save
     # we should also sign them in
     session[:user_id] = @user.id
-    redirect_to root_path, notice: "Welcome!"
+    redirect_to root_path, notice: "Profile Completed!"
   else
-    render :new
+    render :profile
   end
 
 end

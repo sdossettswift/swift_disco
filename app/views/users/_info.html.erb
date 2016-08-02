@@ -6,62 +6,44 @@
 
 <%= form_for @user do |f| %>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control" %>
-  </div>
+  <%= render partial: 'short_info' %>
 
-  <div class="form-group">
-    <%= f.label :username %>
-    <%= f.text_field :username, class: "form-control" %>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :role %>
-   <select>
-     <option value="" disabled selected>Select Your Role</option>
-     <option value="Client">Client</option>
-     <option value="Attorney">Attorney</option>
-     <option value="Law Office">Law Office</option>
-     <option value="Admin">Admin </option>
-   </select>
- </div>
-
-  <div class="form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: "form-control" %>
+  <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+      </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :middle_name %>
+        <%= f.text_field :middle_name, class: "form-control" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :middle_name %>
-    <%= f.text_field :middle_name, class: "form-control" %>
+  <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+      </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :maiden_name %>
+        <%= f.text_field :maiden_name, class: "form-control" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :maiden_name %>
-    <%= f.text_field :maiden_name, class: "form-control" %>
-  </div>
+  
 
   <div class="form-group">
     <%= f.label :birthdate %>
     <%= f.date_field:dob%>
   </div>
 
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, size: "60x12", class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, size: "60x12", class: "form-control" %>
-  </div>
 
 
   <div class="form-group">
