@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'documents/new'
+
+  get 'documents/edit'
+
+  get 'photos/index'
+
+  get 'photos/show'
+
+  get 'photos/new'
+
+  get 'photos/create'
+
+  get 'photos/edit'
+
+  get 'photos/update'
+
   get 'intake/case_analysis'
 
   use_doorkeeper
@@ -32,6 +48,23 @@ Rails.application.routes.draw do
     get 'events/:id/edit' => 'events#edit', as: :edit_event
     delete 'events/:id' => 'events#delete'
     patch 'events/:id' => 'events#update'
+
+    #photos
+      post 'photos' => 'photos#create'
+      get 'photos/new' => 'photos#new', as: :new_photo
+      get 'photos/:id' => 'photos#show', as: :photo
+      get 'photos/:id/edit' => 'photos#edit', as: :edit_photo
+      delete 'photos/:id' => 'photos#delete'
+      patch 'photos/:id' => 'photos#update'
+
+      #documents
+        post 'documents' => 'documents#create'
+        get 'documents/new' => 'documents#new', as: :new_document
+        get 'documents/:id' => 'documents#show', as: :document
+        get 'documents/:id/edit' => 'documents#edit', as: :edit_document
+        delete 'documents/:id' => 'documents#delete'
+        patch 'documents/:id' => 'documents#update'
+
 
   #api_events
     get 'api/events/new' => 'api/events#new'

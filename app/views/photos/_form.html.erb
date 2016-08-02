@@ -1,0 +1,26 @@
+<% if @photo.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <% @photo.errors.full_messages.each do |msg| %>
+      <%= msg %><br>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="well">
+
+<%= form_for @photo do |f| %>
+  <div class="form-group">
+    <%= f.label :photo %>
+    <%= f.attachment_field :photo, as: :file, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :caption %>
+    <%= f.text_field :caption, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-lg btn-primary"%>
+  </div>
+<% end %>
+</div>
