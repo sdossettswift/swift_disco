@@ -2,7 +2,7 @@
   <div class="card">
     <div class="container">
       <h1>  <%= @document.description%></h1>
-      <%=image_tag @document%>
+      <iframe src="<%= attachment_url(@document, :document, format: 'pdf') %>" width="600" height="800"></iframe>
     </div>
   </div>
 </div>

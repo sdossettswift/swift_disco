@@ -18,8 +18,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @document = Document.new
-    @document.description = params[:document][:description]
+    @document = Document.new(allowed_params)
     if @document.save
       redirect_to root_path, notice: "Document Added"
       else
@@ -45,5 +44,11 @@ class DocumentsController < ApplicationController
     @document = @current_user.documents.find_by! id: params[:id]
     @document.destroy
     redirect_to root_path, notice: "Document Deleted"
+  end
+
+  private
+
+  def allowed_params
+    params.require(:document).permit(:description, :document)
   end
 end
