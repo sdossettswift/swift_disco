@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="card">
+    <div class="container">
+      <h1>Case Analysis</h1>
+
+      <%= form_for @matter do |f| %>
+        <div class="form-group">
+          <%= f.label :cause_number %>
+          <%= f.text_field :cause_number, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :client %>
+          <%= f.text_field :client, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :attorney %>
+          <%= f.text_field :attorney, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :paralegal %>
+          <%= f.text_field :paralegal, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :type %>
+          <%= f.collection_select :type, Matter::TYPE, :to_s, :to_s, :include_blank => true%>
+          </div>
+        <div class="form-group">
+          <%= f.label :opposing_party %>
+          <%= f.text_field :opposing_party, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :opposing_counsel %>
+          <%= f.text_field :opposing_counsel, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :judge %>
+          <%= f.text_field :judge, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :court %>
+          <%= f.text_field :court, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :year %>
+          <%= f.text_field :year, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit class: "btn btn-lg btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

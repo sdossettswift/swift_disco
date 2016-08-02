@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801200901) do
+ActiveRecord::Schema.define(version: 20160802032559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,10 +60,11 @@ ActiveRecord::Schema.define(version: 20160801200901) do
     t.string   "paralegal"
     t.string   "client"
     t.string   "client_id"
-    t.string   "type"
     t.string   "opposing_party"
     t.string   "opposing_counsel"
     t.string   "judge"
+    t.string   "kind"
+    t.string   "status"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|

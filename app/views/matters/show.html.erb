@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="card">
+    <div class="container">
+    <h1><%= @matter.cause_number%></h1>
+    <h2>Client:<%= @matter.client%></h2>
+      <ul>
+        <li>Client Id: <%= @matter.client_id%></li>
+        <li>Attorney: <%= @matter.attorney%></li>
+        <li>Paralegal: <%= @matter.paralegal%></li>
+        <li>Case Type:<%= @matter.kind%></li>
+        <li>Case Status: <%= @matter.status%></li>
+        <li>Opposing Party:<%=@matter.opposing_party%></li>
+        <li>Opposing Counsel:<%=@matter.opposing_counsel%></li>
+        <li>Judge:<%=@matter.judge%></li>
+      </ul>
+        <%= link_to "Update Matter", edit_matter_path%>
+      </div>
+    </div>
+</div>

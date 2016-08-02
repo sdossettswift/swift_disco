@@ -1,0 +1,2 @@
+module IntakeHelper
+end

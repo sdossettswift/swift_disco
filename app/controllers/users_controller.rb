@@ -15,37 +15,20 @@ class UsersController < ApplicationController
    @user.maiden_name = params[:user][:maiden_name]
    @user.dob = params[:user][:dob]
    @user.password_confirmation = params[:user][:password_confirmation]
-   if @user.save
-     # we should also sign them in
-     session[:user_id] = @user.id
-     redirect_to root_path, notice: "Welcome!"
-   else
-     render :new
-   end
-end
+     if @user.save
+       # we should also sign them in
+       session[:user_id] = @user.id
+       redirect_to root_path, notice: "Welcome!"
+     else
+       render :new
+     end
+ end
 
-def show_profile
-  @user = User.find_by id: params[:id]
-
-end
-
-def profile
-  @user = User.find_by id: session[:user_id]
-  @user.first_name = params[:user][:first_name]
-  @user.middle_name = params[:user][:middle_name]
-  @user.last_name = params[:user][:last_name]
-  @user.maiden_name = params[:user][:maiden_name]
-  @user.dob = params[:user][:dob]
-  @user.gender = params [:user][:gender]
-  @user.role = params [:user][:role]
-  @user.password_confirmation = params[:user][:password_confirmation]
-  if @user.save
-    # we should also sign them in
-    session[:user_id] = @user.id
-    redirect_to root_path, notice: "Profile Completed!"
-  else
-    render :profile
+  def show_profile
+    @user = User.find_by id: params[:id]
   end
 
-end
+  def profile
+    @user = User.find_by id: params[:id]
+  end
 end

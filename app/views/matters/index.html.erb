@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="card">
+    <div class="container">
+      <div class="list-group">
+          <h1>Matters</h1>
+          <ul>
+            <% @matters.each do |matter| %>
+              <li>Cause: <%= matter.cause_number%></li>
+              <li>Id: <%= matter.id%></li>
+              <li>Client: <%= matter.client%></li>
+              <li>Attorney: <%= matter.attorney%></li>
+              <li>Paralegal: <%= matter.paralegal%></li>
+              <li>Case Type: <%= matter.kind%></li>
+              <%= link_to "See Detail", matter_path(id: matter.id) %>
+              <%end%>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>

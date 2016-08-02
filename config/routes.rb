@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'intake/case_analysis'
+
   use_doorkeeper
 
 
@@ -14,12 +16,14 @@ Rails.application.routes.draw do
   get 'roles/all' => 'roles#all', as: :all_users_by_role
 
   #matters
+  get 'matters' => 'matters#index', as: :all_matters
   post 'matters' => 'matters#create'
   get 'matters/new' => 'matters#new', as: :new_matter
   get 'matters/:id' => 'matters#show', as: :matter
   get 'matters/:id/edit' => 'matters#edit', as: :edit_matter
   delete 'matters/:id' => 'matters#delete'
   patch 'matters/:id' => 'matters#update'
+
 
   #events
     post 'events' => 'events#create'
@@ -43,8 +47,9 @@ Rails.application.routes.draw do
     post 'users' => 'users#create', as: :create_user
     get 'users' => 'users#index', as: :users
     get 'users/:id' => 'users#profile', as: :user
-  # patch 'users' => 'users#update', as: :update_user
-    # put 'users' => 'users#update'
+    get 'users/update' =>'users#update', as: :update_user
+    patch 'users' => 'users#update'
+    put 'users' => 'users#update'
     #api users
     post 'api/registrations' => 'api/registrations#create'
 

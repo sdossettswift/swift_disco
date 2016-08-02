@@ -1,11 +1,7 @@
-class MattersController < ApplicationController
+class MatterController < ApplicationController
 
   def new
     @matter = Matter.new
-  end
-
-  def index
-    @matters = Matter.all
   end
 
   def create
@@ -16,20 +12,20 @@ class MattersController < ApplicationController
     @matter.client = params[:matter][:client]
     @matter.attorney = params[:matter][:attorney]
     @matter.paralegal = params[:matter][:paralegal]
-    @matter.kind = params[:matter][:kind]
-    @matter.status = params[:matter][:status]
+    @matter.type = params[:matter][:type]
     @matter.opposing_party = params[:matter][:opposing_party]
+
     if @matter.save
         redirect_to root_path, notice: "Matter Added!"
     else render :new
     end
   end
 
-  def show
-    @matter = Matter.find_by id: params[:id]
+  def index
+    @matter = Matter.all
   end
 
-  def edit
+  def show
     @matter = Matter.find_by id: params[:id]
   end
 
@@ -41,7 +37,7 @@ class MattersController < ApplicationController
    @matter.client = params[:matter][:client]
    @matter.attorney = params[:matter][:attorney]
    @matter.paralegal = params[:matter][:paralegal]
-   @matter.kind = params[:matter][:kind]
+   @matter.type = params[:matter][:type]
    @matter.opposing_party = params[:matter][:opposing_party]
    if @matter.save
        redirect_to root_path, notice: "Matter Updated!"

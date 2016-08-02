@@ -29,7 +29,8 @@
             <%if @current_user%>
              <li><%= link_to "Add Event", new_event_path%></li>
              <li><%= link_to "Add Document", root_path%></li>
-             <li><%= link_to "Sign Out", sign_out_path%></li>
+             <li><%= link_to "Dashboard", dashboard_path%></li>
+            <li><%= link_to "Sign Out", sign_out_path%></li>
              <%else%>
              <li><%=link_to 'Sign In', sign_in_path%></li>
              <li><%=link_to 'Create Account', new_user_path%></li>

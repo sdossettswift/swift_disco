@@ -1,19 +1,6 @@
-<div class="container">
-  <div class="well">
-    <header>
-      <% if @current_user %>
-      <h5><HELLO, <%= @user.username.upcase%>!</h5>
-      <% else %>
-        <h5> Please <%=link_to "create account", new_user_path%> or  <%=link_to "sign in!", sign_in_path%></h5>
-      <% end %>
-    </header>
-  </div>
-</div>
-
 <div id="timeline-embed">
-   <div id="timeline"></div>
- </div>
- <link rel="stylesheet" href="//cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+<div id="timeline"></div>
+</div>
  <link rel="stylesheet" href="//cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
  <script type="text/javascript" src="//cdn.knightlab.com/libs/timeline3/latest/js/timeline-min.js"></script>
  <script>
