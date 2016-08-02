@@ -17,12 +17,14 @@ gem 'jbuilder', '~> 2.5'
  gem 'minitest-rails'
  gem 'simple_form'
 
+ gem 'pg_search' #postgres search
+
  gem 'materialize-sass'
 
  gem 'wicked_pdf'
- gem 'wkhtmltopdf-binary'
+ gem 'wkhtmltopdf-binary' #wicked_pdf binary
 
- gem 'doorkeeper'
+ gem 'doorkeeper' #oauth
 
 gem 'refile', github: "refile/refile", require: 'refile/rails'
 gem 'refile-mini_magick'
@@ -33,7 +35,7 @@ gem "rack-protection", github: "sinatra/rack-protection"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
-  gem 'rails_12factor'
+  gem 'rails_12factor' #for heroku
 end
 
 group :test do
@@ -50,7 +52,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "rails-erd"
+  gem "rails-erd" #entity relationship diagrams
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

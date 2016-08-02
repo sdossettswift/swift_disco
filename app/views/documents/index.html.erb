@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card">
+    <div class="container">
+      <div class="list-group">
+          <h1>Documents</h1>
+          <ul>
+            <% @documents.each do |document| %>
+              <%=document.description%>
+              <%= link_to "See Detail", document_path(id: document.id) %> </br>
+              <%end%>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>

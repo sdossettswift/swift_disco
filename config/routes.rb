@@ -49,6 +49,7 @@ Rails.application.routes.draw do
         get 'documents/:id/edit' => 'documents#edit', as: :edit_document
         delete 'documents/:id' => 'documents#delete'
         patch 'documents/:id' => 'documents#update'
+        get 'documents' => 'documents#index', as: :document_index
 
 
   #api_events

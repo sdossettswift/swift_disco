@@ -19,8 +19,7 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new
-    @document.caption = params[:document][:caption]
-    @document.document = params[:document][:document]
+    @document.description = params[:document][:description]
     if @document.save
       redirect_to root_path, notice: "Document Added"
       else
@@ -34,17 +33,7 @@ class DocumentsController < ApplicationController
 
   def update
     @document = @current_user.documents.find_by! id: params[:id]
-    @document.headline = params[:document][:headline]
-    @document.text = params[:document][:text]
-    @document.year = params[:document][:year]
-    @document.month = params[:document][:month]
-    @document.day = params[:document][:day]
-    @document.hour = params[:document][:hour]
-    @document.minute = params[:document][:minute]
-    @document.caption = params[:document][:caption]
-    @document.credit = params[:document][:credit]
-    @document.url = params[:document][:url]
-    @document.thumbnail = params[:document][:thumbnail]
+    @document.headline = params[:document][:description]
     if @document.save
       redirect_to root_path, notice: "Document Updated!"
     else
