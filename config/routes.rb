@@ -1,19 +1,4 @@
 Rails.application.routes.draw do
-  get 'documents/new'
-
-  get 'documents/edit'
-
-  get 'photos/index'
-
-  get 'photos/show'
-
-  get 'photos/new'
-
-  get 'photos/create'
-
-  get 'photos/edit'
-
-  get 'photos/update'
 
   get 'intake/case_analysis'
 

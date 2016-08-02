@@ -1,3 +1,4 @@
 class Photo < ApplicationRecord
-  attachment :photo
+  attachment :photo, destroy: false
+  belongs_to :matter
 end
