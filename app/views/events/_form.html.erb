@@ -8,14 +8,13 @@
 
     <div class="well">
 
-
     <%= form_for @event do |f| %>
       <div class="form-group">
-        <%= f.label :headline %>
+        <%= f.label :Event_name %>
         <%= f.text_field :headline, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :text %>
+        <%= f.label :Description %>
         <%= f.text_field :text, class: "form-control" %>
       </div>
       <div class="form-group">
@@ -24,36 +23,36 @@
       </div>
       <div class="form-group">
         <%= f.label :month %>
-        <%= f.text_field :month, class: "form-control" %>
+        <%= f.collection_select :month, Event::MONTH, :to_s, :to_s, :include_blank => true%>
       </div>
       <div class="form-group">
         <%= f.label :day %>
-        <%= f.text_field :day, class: "form-control" %>
+        <%= f.collection_select :month, Event::DAY, :to_s, :to_s, :include_blank => true%>
       </div>
       <div class="form-group">
         <%= f.label :hour %>
-        <%= f.text_field :hour, class: "form-control" %>
+        <%= f.collection_select :month, Event::HOUR, :to_s, :to_s, :include_blank => true%>
       </div>
       <div class="form-group">
         <%= f.label :minute %>
-        <%= f.text_field :minute, class: "form-control" %>
+        <%= f.collection_select :month, Event::MINUTE, :to_s, :to_s, :include_blank => true%>
       </div>
       <div class="form-group">
         <%= f.label :caption %>
         <%= f.text_field :caption, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label :url %>
+        <%= f.label :Media_url %>
         <%= f.text_field :url, class: "form-control" %>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <%= f.label :thumbnail %>
         <%= f.text_field :thumbnail, class: "form-control" %>
-      </div>
-      <div class="form-group">
+      </div> -->
+      <!-- <div class="form-group">
         <%= f.label :credit %>
         <%= f.text_field :credit, class: "form-control" %>
-      </div>
+      </div> -->
       <div class="form-group">
         <%= f.submit class: "btn btn-lg btn-primary"%>
       </div>
