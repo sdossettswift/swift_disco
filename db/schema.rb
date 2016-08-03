@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803001819) do
+ActiveRecord::Schema.define(version: 20160803002758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20160803001819) do
     t.string   "document_id"
     t.string   "category"
     t.string   "year"
+    t.string   "month"
+    t.string   "day"
   end
 
   create_table "events", force: :cascade do |t|
