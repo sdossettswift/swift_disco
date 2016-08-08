@@ -5,5 +5,6 @@ class Matter < ApplicationRecord
   has_many :photos
   has_many :users, through: :roles
   has_many :roles
+  has_many :usermatters
   KIND = ['Divorce', 'Divorce w/ Kids', 'Modification', 'Enforcement', 'Adoption','CPS','Other SAPCR']
 end

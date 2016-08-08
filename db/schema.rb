@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803002758) do
+ActiveRecord::Schema.define(version: 20160803192210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,14 +29,20 @@ ActiveRecord::Schema.define(version: 20160803002758) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "description"
     t.string   "document_id"
     t.string   "category"
     t.string   "year"
     t.string   "month"
     t.string   "day"
+    t.text     "client_notes"
+    t.text     "attorney_notes"
+    t.text     "law_office_notes"
+    t.boolean  "hot_doc"
+    t.string   "issues"
+    t.date     "sort_date"
   end
 
   create_table "events", force: :cascade do |t|
@@ -157,6 +163,15 @@ ActiveRecord::Schema.define(version: 20160803002758) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_matters", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "matter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["matter_id"], name: "index_user_matters_on_matter_id", using: :btree
+    t.index ["user_id"], name: "index_user_matters_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
@@ -176,4 +191,6 @@ ActiveRecord::Schema.define(version: 20160803002758) do
 
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "user_matters", "matters"
+  add_foreign_key "user_matters", "users"
 end

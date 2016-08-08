@@ -37,6 +37,11 @@
   </div>
 
   <div class="form-group">
+    <%=f.label :client_notes%>
+    <%=f.text_area :client_notes, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: "btn btn-lg btn-primary"%>
   </div>
 <% end %>
