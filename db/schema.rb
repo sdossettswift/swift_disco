@@ -10,55 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803192210) do
+ActiveRecord::Schema.define(version: 20160808222828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "case_matters", force: :cascade do |t|
-    t.string   "cause_number"
-    t.string   "year"
-    t.string   "client_id"
-    t.string   "client"
-    t.string   "attorney"
-    t.string   "paralegal"
-    t.string   "type"
-    t.string   "opposing_party"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
   create_table "documents", force: :cascade do |t|
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "description"
-    t.string   "document_id"
-    t.string   "category"
-    t.string   "year"
-    t.string   "month"
-    t.string   "day"
-    t.text     "client_notes"
-    t.text     "attorney_notes"
-    t.text     "law_office_notes"
-    t.boolean  "hot_doc"
-    t.string   "issues"
-    t.date     "sort_date"
+    t.string  "description"
+    t.string  "document_id"
+    t.string  "category"
+    t.string  "year"
+    t.string  "month"
+    t.string  "day"
+    t.text    "client_notes"
+    t.text    "attorney_notes"
+    t.text    "law_office_notes"
+    t.integer "matter_id"
+    t.boolean "hot_doc"
+    t.string  "issues"
+    t.string  "sort_date"
+    t.integer "status"
+    t.string  "date"
+    t.string  "title"
+    t.index ["matter_id"], name: "index_documents_on_matter_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "headline"
-    t.string   "text"
-    t.string   "year"
-    t.string   "month"
-    t.string   "day"
-    t.string   "hour"
-    t.string   "minute"
-    t.string   "caption"
-    t.string   "credit"
-    t.string   "url"
-    t.string   "thumbnail"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "headline"
+    t.string  "text"
+    t.string  "year"
+    t.string  "month"
+    t.string  "day"
+    t.string  "hour"
+    t.string  "minute"
+    t.string  "caption"
+    t.string  "credit"
+    t.string  "url"
+    t.string  "thumbnail"
+    t.integer "matter_id"
+    t.index ["matter_id"], name: "index_events_on_matter_id", using: :btree
   end
 
   create_table "matters", force: :cascade do |t|
@@ -118,21 +108,30 @@ ActiveRecord::Schema.define(version: 20160803192210) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.string   "name_first"
-    t.string   "name_last"
-    t.string   "name_middle"
-    t.string   "dob"
-    t.string   "gender"
-    t.string   "roles"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string  "first_name"
+    t.string  "last_name"
+    t.date    "dob"
+    t.string  "gender"
+    t.text    "attorney_notes"
+    t.text    "client_notes"
+    t.text    "law_office_notes"
+    t.text    "details"
+    t.string  "address1"
+    t.string  "address2"
+    t.string  "city"
+    t.string  "state"
+    t.string  "email"
+    t.string  "phone"
+    t.integer "matter_id"
+    t.index ["matter_id"], name: "index_people_on_matter_id", using: :btree
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string   "photo_id"
-    t.string   "caption"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "photo_id"
+    t.string  "caption"
+    t.date    "sort_date"
+    t.integer "matter_id"
+    t.index ["matter_id"], name: "index_photos_on_matter_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -189,8 +188,12 @@ ActiveRecord::Schema.define(version: 20160803192210) do
     t.string   "profile_image_id"
   end
 
+  add_foreign_key "documents", "matters"
+  add_foreign_key "events", "matters"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "people", "matters"
+  add_foreign_key "photos", "matters"
   add_foreign_key "user_matters", "matters"
   add_foreign_key "user_matters", "users"
 end

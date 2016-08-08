@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="card">
+    <div class="container">
+
+      <%=@user.email%>
+      <%=@user.role %>
+      <%=@user.username %>
+      <%=@user.first_name %>
+      <%=@user.middle_name%>
+      <%=@user.last_name %>
+
+    <%= link_to "Update User", edit_user_path%>
+    </div>
+  </div>
+</div>

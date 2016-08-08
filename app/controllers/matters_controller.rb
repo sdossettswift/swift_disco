@@ -19,6 +19,9 @@ class MattersController < ApplicationController
     @matter.kind = params[:matter][:kind]
     @matter.status = params[:matter][:status]
     @matter.opposing_party = params[:matter][:opposing_party]
+    @matter.opposing_counsel = params[:matter][:opposing_counsel]
+    @matter.judge = params[:matter][:judge]
+    @matter.court = params[:matter][:court]
     if @matter.save
         redirect_to root_path, notice: "Matter Added!"
     else render :new
@@ -43,6 +46,11 @@ class MattersController < ApplicationController
    @matter.paralegal = params[:matter][:paralegal]
    @matter.kind = params[:matter][:kind]
    @matter.opposing_party = params[:matter][:opposing_party]
+   @matter.opposing_counsel = params[:matter][:opposing_counsel]
+   @matter.judge = params[:matter][:judge]
+   @matter.court = params[:matter][:court]
+   @matter.status = params[:matter][:status]
+
    if @matter.save
        redirect_to root_path, notice: "Matter Updated!"
    else render :update
