@@ -108,5 +108,41 @@
               </table>
 
             </div>
+            <table = "table">
+              <h1>Events</h1>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Event ID</th>
+                    <th>Matter Id</th>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Headline</th>
+                    <th>Caption</th>
+                    <th>URL</th>
+                    <th>Detail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @events.each do |event|%>
+                    <tr>
+                      <td><%=event.id%> </td>
+                      <td><%=event.matter_id%></td>
+                      <td><%=event.year%></td>
+                      <td><%=event.month%></td>
+                      <td><%=event.headline%></td>
+                      <td><%=event.caption%> </td>
+                      <td><%=event.url%></td>
+                      <td><%= link_to "See Detail", event_path(id: event.id) %></td>
+                    </tr>
+                  <%end%>
+                  </tr>
+                </tbody>
+              </table>
+
+
+            </table>
+
+
           </div>
         </div>

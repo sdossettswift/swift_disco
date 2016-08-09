@@ -23,7 +23,7 @@ class UserMattersController < ApplicationController
 
 private
   def user_matter_params
-    params.require(:user_matter).permit(:matter_id, :full_name, :casename :user_id, :user, :matter, :id)
+    params.require(:user_matter).permit(:matter_id, :full_name, :casename, :user_id, :user, :matter, :id)
 
   end
 end
