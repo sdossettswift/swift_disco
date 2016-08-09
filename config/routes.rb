@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   use_doorkeeper
 
-
+resources :users
   namespace :admin do
     get 'case/new'
     get 'case/create'
@@ -12,6 +12,15 @@ Rails.application.routes.draw do
     get 'case/show'
   end
 
+
+  get 'sessions/current_matter' => 'sessions#new_current_matter', as: :select_current_matter
+  post 'sessions/current_matter' => 'sessions#create_current_matter'
+  delete 'current_matter' => 'current_matter#delete', as: :end_matter_session
+  get 'leave_matter' => 'sessions#delete_current_matter', as: :leave_matter
+
+
+
+resources :user_matters
 
   get 'dashboard' => 'dashboard#show', as: :dashboard
   get 'roles/all' => 'roles#all', as: :all_users_by_role
@@ -62,13 +71,7 @@ Rails.application.routes.draw do
     delete 'api/events/:id' => 'api/events#delete'
 
   #users
-    get 'register' => 'users#new', as: :new_user
-    post 'users' => 'users#create', as: :create_user
-    get 'users' => 'users#index', as: :users
-    get 'users/:id' => 'users#profile', as: :user
-    get 'users/update' =>'users#update', as: :update_user
-    patch 'users' => 'users#update'
-    put 'users' => 'users#update'
+
     #api users
     post 'api/registrations' => 'api/registrations#create'
 
@@ -81,5 +84,5 @@ Rails.application.routes.draw do
     delete 'sign_in' => 'sessions#delete', as: :end_session
     get 'sign_out' => 'sessions#delete', as: :sign_out
 
-  root 'welcome#hello'
+  root 'dashboard#show'
 end

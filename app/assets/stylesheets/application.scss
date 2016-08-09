@@ -8,6 +8,10 @@
     flex-direction: column;
   }
 
+  .spacer{
+    margin: 10px; 
+  }
+
   .main {
     flex: 1 0 auto;
   }
@@ -18,7 +22,7 @@
 
   h1{
         font-family: 'Dosis', sans-serif;
-        text-align: center; 
+        text-align: center;
       }
 .footer{
   text-align: center;

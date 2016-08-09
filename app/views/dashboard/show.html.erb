@@ -1,13 +1,177 @@
-<div class="container">
-  <div class="card">
     <div class="container">
+      <div class="card">
       <h1>Firm Dashboard</h1>
         <ul>
-          <li><%= link_to 'Display All Users', all_users_by_role_path %></li>
+          <li><%= link_to 'Display All Users', users_path %></li>
           <li><%= link_to 'Create Matter', new_matter_path %></li>
           <li><%= link_to 'Display All Matters', all_matters_path %></li>
           <li><%= link_to 'Display All Documents', document_index_path %></li>
+          <li><%= link_to "Create User", new_user_path%></li>
+          <li><%= link_to "Create User-Matters", new_user_matter_path%></li>
         </ul>
+        </div>
+      </div>
+      <div class="spacer"></div>
+
+<div class="container">
+  <div class="card">
+    <h1><%= link_to "Users", users_path%></h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User ID </th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Role </th>
+            <th>Link </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user|%>
+            <tr>
+            <td> <%=user.id%></td>
+            <td>  <%=user.username%> </td>
+            <td> <%=user.email%> </td>
+            <td> <%=user.full_name%> </td>
+            <td> <%=user.role%> </td>
+            <td> <%=link_to 'More Info', user_path(id: user.id)%> </td>
+            </tr>
+          <%end%>
+          </tr>
+        </tbody>
+      </table>
     </div>
+<div class="spacer"></div>
+
+  <div class="card">
+    <h1><%= link_to "All User Matters", root_path%></h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">User</th>
+              <th>Matter</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user_matters.each do |user_matter|%>
+              <tr>
+              <td>  <%=user_matter.matter_id%> </td>
+              <td> <%=user_matter.user_id%> </td>
+              </tr>
+            <%end%>
+            </tr>
+          </tbody>
+        </table>
   </div>
+<div class="spacer"></div>
+
+  <div class="card">
+    <h1><%= link_to "Matters", matters_path%></h1>
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Cause Number
+        </th>
+        <th>
+          Client
+        </th>
+        <th>
+          Paralegal
+        </th>
+        <th>
+          Attorney
+        </th>
+        <th>
+          Type
+        </th>
+        <th>
+          Status
+        </th>
+        <th>
+          Opposing Counsel
+        </th>
+        <th>
+          Opposing Party
+        </th>
+        <th>
+          Link
+        </th>
+      </tr>
+      <% @matters.each do |matter| %>
+      <td>
+        <%= matter.id%>
+      </td>
+      <td>
+        <%= matter.cause_number%>
+      </td>
+      <td>
+        <%= matter.client%>
+      </td>
+      <td>
+        <%= matter.paralegal%>
+      </td>
+      <td>
+        <%= matter.attorney%>
+      </td>
+      <td>
+        <%= matter.kind%>
+      </td>
+      <td>
+        <%= matter.status%>
+      </td>
+      <td>
+        <%= matter.opposing_counsel%>
+      </td>
+      <td>
+        <%= matter.opposing_party%>
+      </td>
+      <td>
+        <%= link_to "See Detail", matter_path(id: matter.id) %>
+      </td>
+    </tr>
+      <%end%>
+    </table>
+
+  </div>
+<div class="spacer"></div>
+  <div class="card">
+     <h1><%= link_to "Documents", documents_path%></h1>
+     <table class="table">
+       <thead>
+         <tr>
+           <th class="mdl-data-table__cell--non-numeric">Document ID</th>
+           <th>Matter Id</th>
+           <th>Title</th>
+           <th>Category</th>
+           <th>Issues</th>
+           <th>Status</th>
+           <th>Date</th>
+           <th>Detail</th>
+         </tr>
+       </thead>
+       <tbody>
+         <% @documents.each do |document|%>
+           <tr>
+             <td><%=document.id%> </td>
+             <td><%=document.matter_id%></td>
+             <td><%=document.title%></td>
+             <td><%=document.category%></td>
+             <td><%=document.issues%></td>
+             <td><%=document.status%> </td>
+             <td><%=document.date%></td>
+             <td><%= link_to "See Detail", document_path(id: document.id) %></td>
+           </tr>
+         <%end%>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+ </div>
+    </div>
+
+
 </div>

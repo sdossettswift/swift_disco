@@ -3,17 +3,73 @@
     <div class="container">
       <div class="list-group">
           <h1>Matters</h1>
-          <ul>
+          <table class="table">
+            <tr>
+              <th>
+                ID
+              </th>
+              <th>
+                Cause Number
+              </th>
+              <th>
+                Client
+              </th>
+              <th>
+                Paralegal
+              </th>
+              <th>
+                Attorney
+              </th>
+              <th>
+                Type
+              </th>
+              <th>
+                Status
+              </th>
+              <th>
+                Opposing Counsel
+              </th>
+              <th>
+                Opposing Party
+              </th>
+              <th>
+                Link
+              </th>
+            </tr>
             <% @matters.each do |matter| %>
-              <li>Cause: <%= matter.cause_number%></li>
-              <li>Id: <%= matter.id%></li>
-              <li>Client: <%= matter.client%></li>
-              <li>Attorney: <%= matter.attorney%></li>
-              <li>Paralegal: <%= matter.paralegal%></li>
-              <li>Case Type: <%= matter.kind%></li>
+            <td>
+              <%= matter.id%>
+            </td>
+            <td>
+              <%= matter.cause_number%>
+            </td>
+            <td>
+              <%= matter.client%>
+            </td>
+            <td>
+              <%= matter.paralegal%>
+            </td>
+            <td>
+              <%= matter.attorney%>
+            </td>
+            <td>
+              <%= matter.kind%>
+            </td>
+            <td>
+              <%= matter.status%>
+            </td>
+            <td>
+              <%= matter.opposing_counsel%>
+            </td>
+            <td>
+              <%= matter.opposing_party%>
+            </td>
+            <td>
               <%= link_to "See Detail", matter_path(id: matter.id) %>
-              <%end%>
-          </ul>
+            </td>
+          </tr>
+            <%end%>
+          </table>
       </div>
     </div>
   </div>

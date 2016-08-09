@@ -9,6 +9,12 @@
   <%= f.label :role %>
   <%= f.collection_select :role, User::ROLE, :to_s, :to_s, :include_blank => true%>
 </div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name, class: "form-control" %>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-6">

@@ -18,6 +18,7 @@ ruby '2.3.1'
   gem 'reform', '>= 2.2.0'
   gem 'reform-rails'
   gem 'dry-validation'
+  gem 'gravtastic'
 
   gem 'pg_search' #postgres search
   gem 'materialize-sass'
