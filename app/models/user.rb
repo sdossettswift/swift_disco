@@ -2,7 +2,7 @@ class User < ApplicationRecord
 has_secure_password
 has_many :user_matters
 has_many :matters, through: :user_matters
-has_many :documents, through: :matters
+
 
 include Gravtastic
 gravtastic
