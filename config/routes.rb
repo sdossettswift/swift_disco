@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   use_doorkeeper
 
-
+resources :users
   namespace :admin do
     get 'case/new'
     get 'case/create'
@@ -65,7 +65,7 @@ post 'user_matters' => 'user_matters#create'
     delete 'api/events/:id' => 'api/events#delete'
 
   #users
-resources :users
+
     #api users
     post 'api/registrations' => 'api/registrations#create'
 
