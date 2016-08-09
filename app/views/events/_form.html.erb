@@ -9,13 +9,16 @@
     <div class="well">
 
     <%= simple_form_for @event do |f| %>
+
       <div class="form-group">
+        <%= f.association :matter, label_method: :cause_number %>
+
         <%= f.label :Event_name %>
         <%= f.text_field :headline, class: "form-control" %>
       </div>
       <%= f.input :text %>
       <%= f.input :caption %>
-      <%= f.label :year %>
+      <%= f.input :year %>
 
       <div class="form-group">
         <%= f.label :month %>
@@ -33,10 +36,7 @@
         <%= f.label :minute %>
         <%= f.collection_select :month, Event::MINUTE, :to_s, :to_s, :include_blank => true%>
       </div>
-      <div class="form-group">
-        <%= f.label :caption %>
-        <%= f.text_field :caption, class: "form-control" %>
-      </div>
+
       <div class="form-group">
         <%= f.label :Media_url %>
         <%= f.text_field :url, class: "form-control" %>

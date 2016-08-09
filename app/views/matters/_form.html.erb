@@ -10,6 +10,7 @@
 
 <%=simple_form_for @matter do |f|%>
 <%= f.input :cause_number %>
+<%= f.input :casename %>
 <%= f.association :users, label_method: :full_name, value_method: :id, include_blank: true %>
 <%= f.input :kind %>
 <%= f.input :opposing_party %>

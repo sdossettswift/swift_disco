@@ -6,11 +6,8 @@ class UserMattersController < ApplicationController
 
   def create
     @user_matter = UserMatter.new(user_matter_params)
-    if @user_matter.save
-       render :new
-    else
-      render :new
-    end
+    @user_matter.save
+
   end
 
   def update

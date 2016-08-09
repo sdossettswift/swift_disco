@@ -9,12 +9,11 @@
 <div class="well">
   <h1>Request Document</h1>
 
-<%= form_for @document do |f| %>
+<%= simple_form_for @document do |f| %>
 
-<div class="form-group">
-  <%= f.label :Case%>
-<%= f.collection_select :id, Matter.order(:id),:cause_number,:cause_number, include_blank: true %>
-</div>
+
+    <%= f.association :matter, label_method: :cause_number %>
+
   <div class="form-group">
     <%= f.label :document %>
     <%= f.attachment_field :document, as: :file, class: "form-control" %>

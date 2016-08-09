@@ -31,6 +31,7 @@ class EventsController < ApplicationController
     @event.credit = params[:event][:credit]
     @event.url = params[:event][:url]
     @event.thumbnail = params[:event][:thumbnail]
+    @event.matter_id = params[:event][:matter_id]
 
     if @event.save
       redirect_to root_path, notice: "Event Added"
@@ -56,6 +57,7 @@ class EventsController < ApplicationController
     @event.credit = params[:event][:credit]
     @event.url = params[:event][:url]
     @event.thumbnail = params[:event][:thumbnail]
+      @event.matter_id = params[:event][:matter_id]
     if @event.save
       redirect_to root_path, notice: "Event Updated!"
     else

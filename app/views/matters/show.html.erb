@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col-xs-6 col-md-4">
       <h1>Add Attorney</h1>
-      <%=simple_form_for @user_matters do |f|%>
+      <%=simple_form_for @user_matter do |f|%>
         <%= f.association :matter, label_method: :cause_number, value_method: :id%>
         <%= f.association :user, label_method: :full_name, value_method: :id %>
         <%= f.button :submit%>
@@ -30,7 +30,7 @@
     </div>
     <div class="col-xs-6 col-md-4">
       <h1>Add Client</h1>
-      <%=simple_form_for @user_matters do |f|%>
+      <%=simple_form_for @user_matter do |f|%>
         <%= f.association :matter, label_method: :cause_number, value_method: :id%>
         <%= f.association :user, label_method: :full_name, value_method: :id %>
         <%= f.button :submit%>
@@ -38,7 +38,7 @@
     </div>
   <div class="col-xs-6 col-md-4">
     <h1>Add Paralegal</h1>
-    <%=simple_form_for @user_matters do |f|%>
+    <%=simple_form_for @user_matter do |f|%>
       <%= f.association :matter, label_method: :cause_number, value_method: :id%>
       <%= f.association :user, label_method: :full_name, value_method: :id %>
       <%= f.button :submit%>

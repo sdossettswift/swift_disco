@@ -1,8 +1,9 @@
 class User < ApplicationRecord
 has_secure_password
-has_and_belongs_to_many :matters
-has_and_belongs_to_many :roles
-has_many :usermatters
+belongs_to :matter
+has_many :documents, through: :matter
+
+has_many :user_matters
 attachment :profile_image, destroy: false
 ROLE = ['Attorney', 'Client', 'Admin', 'Law Office']
 validates :role, presence: true
