@@ -13,8 +13,14 @@ resources :users
   end
 
 
-get 'user_matters/new' => 'user_matters#new', as: :new_user_matter
-post 'user_matters' => 'user_matters#create'
+  get 'sessions/current_matter' => 'sessions#new_current_matter', as: :select_current_matter
+  post 'sessions/current_matter' => 'sessions#create_current_matter'
+  delete 'current_matter' => 'current_matter#delete', as: :end_matter_session
+  get 'leave_matter' => 'sessions#delete_current_matter', as: :leave_matter
+
+
+
+resources :user_matters
 
   get 'dashboard' => 'dashboard#show', as: :dashboard
   get 'roles/all' => 'roles#all', as: :all_users_by_role

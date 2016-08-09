@@ -1,48 +1,75 @@
-<div class="container">
-  <div class="card">
-    <div class="container">
-    <h1><%= @matter.cause_number%></h1>
-    <h2>Client:<%= @matter.client%></h2>
-      <ul>
-        <li>Client Id: <%= @matter.client%></li>
-        <li>Attorney: <%= @matter.attorney%></li>
-        <li>Paralegal: <%= @matter.paralegal%></li>
-        <li>Case Type:<%= @matter.kind%></li>
-        <li>Case Status: <%= @matter.status%></li>
-        <li>Opposing Party:<%=@matter.opposing_party%></li>
-        <li>Opposing Counsel:<%=@matter.opposing_counsel%></li>
-        <li>Judge:<%=@matter.judge%></li>
-      </ul>
-        <%= link_to "Update Matter", edit_matter_path%>
-      </div>
-    </div>
-</div>
+<div class="wrapper">
+  <div class="row">
+
+  <div class="col-xs-6 col-md-4">
+<div class="card">
+        <h1><%= @matter.cause_number%></h1>
+        <h2>Client:<%= @matter.client%></h2>
+          <ul>
+            <li>Client Id: <%= @matter.client%></li>
+            <li>Attorney: <%= @matter.attorney%></li>
+            <li>Paralegal: <%= @matter.paralegal%></li>
+            <li>Case Type:<%= @matter.kind%></li>
+            <li>Case Status: <%= @matter.status%></li>
+            <li>Opposing Party:<%=@matter.opposing_party%></li>
+            <li>Opposing Counsel:<%=@matter.opposing_counsel%></li>
+            <li>Judge:<%=@matter.judge%></li>
+          </ul>
+            <%= link_to "Update Matter", edit_matter_path%>
+          </div>
+        </div>
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <div class="card">
+
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Document ID</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Year</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @documents.each do |document|%>
+              <tr>
+                <td><%=document.id%> </td>
+                <td><%=document.description%></td>
+                <td><%=document.category%></td>
+                <td><%=document.status%></td>
+                <td><%=document.year%></td>
+                <td><%= link_to "Detail", document_path(id: document.id) %></td>
+              </tr>
+            <%end%>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+          </div>
+
+
+
 
 <div class="container">
 <div class="row">
     <div class="col-xs-6 col-md-4">
       <h1>Add Attorney</h1>
-      <%=simple_form_for @user_matter do |f|%>
-        <%= f.association :matter, label_method: :cause_number, value_method: :id%>
-        <%= f.association :user, label_method: :full_name, value_method: :id %>
-        <%= f.button :submit%>
-      <%end%>
+        <%= render partial: 'user_matter_form' %>
+
+
     </div>
     <div class="col-xs-6 col-md-4">
       <h1>Add Client</h1>
-      <%=simple_form_for @user_matter do |f|%>
-        <%= f.association :matter, label_method: :cause_number, value_method: :id%>
-        <%= f.association :user, label_method: :full_name, value_method: :id %>
-        <%= f.button :submit%>
-      <%end%>
+      <%= render partial: 'user_matter_form' %>
+
     </div>
   <div class="col-xs-6 col-md-4">
     <h1>Add Paralegal</h1>
-    <%=simple_form_for @user_matter do |f|%>
-      <%= f.association :matter, label_method: :cause_number, value_method: :id%>
-      <%= f.association :user, label_method: :full_name, value_method: :id %>
-      <%= f.button :submit%>
-    <%end%>
+    <%= render partial: 'user_matter_form' %>
+
   </div>
 </div>
 

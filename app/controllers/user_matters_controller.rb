@@ -5,10 +5,14 @@ class UserMattersController < ApplicationController
   end
 
   def create
-    @user_matter = UserMatter.new(user_matter_params)
-    @user_matter.save
+      @user_matter = UserMatter.new(user_matter_params)
+      if @user_matter.save
+      redirect_to matter_path(:id)
+      else
+        render :new
+      end
+    end
 
-  end
 
   def update
   end
@@ -19,7 +23,7 @@ class UserMattersController < ApplicationController
 
 private
   def user_matter_params
-    params.require(:user_matter).permit(:matter_id, :user_id)
+    params.require(:user_matter).permit(:matter_id, :user_id, :user, :matter, :id)
 
   end
 end

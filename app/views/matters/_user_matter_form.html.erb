@@ -1,0 +1,7 @@
+
+<%=simple_form_for @user_matter do |f|%>
+
+  <%= f.association :matter, label_method: :cause_number, value_method: :id%>
+  <%= f.association :user, label_method: :username, value_method: :id %>
+  <%= f.button :submit%>
+<%end%>
