@@ -15,21 +15,23 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :client %>
-    <%= f.text_field :client, class: "form-control" %>
+    <%= f.label :Client%>
+  <%= f.collection_select :id, User.order(:id),:first_name,:full_name, include_blank: true %>
   </div>
   <div class="form-group">
-    <%= f.label :attorney %>
-    <%= f.text_field :attorney, class: "form-control" %>
+    <%= f.label :Attorney%>
+  <%= f.collection_select :id, User.order(:id),:first_name,:full_name, include_blank: true %>
   </div>
   <div class="form-group">
-    <%= f.label :paralegal %>
-    <%= f.text_field :paralegal, class: "form-control" %>
+    <%= f.label :Paralegal%>
+  <%= f.collection_select :id, User.order(:id),:first_name,:full_name, include_blank: true %>
   </div>
+
   <div class="form-group">
     <%= f.label :kind %>
     <%= f.collection_select :kind, Matter::KIND, :to_s, :to_s, :include_blank => true%>
     </div>
+    
   <div class="form-group">
     <%= f.label :opposing_party %>
     <%= f.text_field :opposing_party, class: "form-control" %>

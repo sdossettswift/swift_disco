@@ -1,62 +1,33 @@
-<div class="container">
+
   <div class="card">
     <div class="container">
       <table class="table">
-    <tr>
-      <th>
-        Id
-      </th>
-      <th>
-        Role
-      </th>
-      <th>
-        Username
-      </th>
-      <th>
-        First Name
-      </th>
-      <th>
-        Middle Name
-      </th>
-      <th>
-        Last Name
-      </th>
-      <th>
-        Birthdate
-      </th>
-      <th>
-        Detail
-      </th>
-    </tr>
-    <tr>
-      <%@users.each do |user|%>
-      <td>
-        <%=user.id%>
-      </td>
-      <td>
-        <%=user.role%>
-      </td>
-      <td>
-        <%=user.username%>
-      </td>
-      <td>
-        <%=user.first_name%>
-      </td>
-      <td>
-        <%=user.middle_name%>
-      </td>
-      <td>
-        <%=user.last_name%>
-      </td>
-      <td>
-        <%=user.dob%>
-      </td>
-      <td>
-        <%= link_to 'Detail', user_path(id: user.id)%>
-      </td>
-      </tr>
-    <%end%>
-  </table>
+        <thead>
+          <tr>
+            <th>User ID </th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Role </th>
+            <th>Link </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user|%>
+            <tr>
+            <td> <%=user.id%></td>
+            <td>  <%=user.username%> </td>
+            <td> <%=user.email%> </td>
+            <td> <%=user.full_name%> </td>
+            <td> <%=user.role%> </td>
+            <td> <%=link_to 'More Info', user_path(id: user.id)%> </td>
+
+            </tr>
+          <%end%>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
-</div>

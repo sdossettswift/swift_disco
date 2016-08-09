@@ -1,4 +1,4 @@
-<div class="container">
+
   <div class="card">
     <div class="container">
       <h1>Firm Dashboard</h1>
@@ -24,9 +24,9 @@
                 <th>User ID </th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>First Name </th>
-                <th>Middle Name </th>
-                <th>Last Name </th>
+                <th>Full Name</th>
+                <th>Role </th>
+                <th>Link </th>
 
               </tr>
             </thead>
@@ -36,9 +36,9 @@
                 <td> <%=user.id%></td>
                 <td>  <%=user.username%> </td>
                 <td> <%=user.email%> </td>
-                <td> <%=user.first_name%> </td>
-                <td> <%=user.middle_name%> </td>
-                <td> <%=user.last_name%> </td>
+                <td> <%=user.full_name%> </td>
+                <td> <%=user.role%> </td>
+                <td> <%=link_to 'More Info', user_path(id: user.id)%> </td>
 
                 </tr>
               <%end%>
@@ -64,55 +64,97 @@
               </tbody>
             </table>
         <h3>All Matters</h3>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="mdl-data-table__cell--non-numeric">Matter ID</th>
-                  <th>Type</th>
-                  <th>Status</th>
-                  <th>Kind</th>
-                  <th>Opposing Party</th>
-                  <th>Opposing Counsel</th>
-                  <th>Court</th>
-                  <th>Judge</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @matters.each do |matter|%>
-                  <tr>
-                  <td><%=matter.id%> </td>
-                  <td><%=matter.cause_number%> </td>
-                  <td><%=matter.status%> </td>
-                  <td><%=matter.kind%></td>
-                  <td><%=matter.opposing_party%></td>
-                  <td><%=matter.opposing_counsel%></td>
-                  <td><%=matter.court%></td>
-                  <td><%=matter.judge%></td>
-                  </tr>
-                <%end%>
-                </tr>
-              </tbody>
-            </table>
-
+        <table class="table">
+          <tr>
+            <th>
+              ID
+            </th>
+            <th>
+              Cause Number
+            </th>
+            <th>
+              Client
+            </th>
+            <th>
+              Paralegal
+            </th>
+            <th>
+              Attorney
+            </th>
+            <th>
+              Type
+            </th>
+            <th>
+              Status
+            </th>
+            <th>
+              Opposing Counsel
+            </th>
+            <th>
+              Opposing Party
+            </th>
+            <th>
+              Link
+            </th>
+          </tr>
+          <% @matters.each do |matter| %>
+          <td>
+            <%= matter.id%>
+          </td>
+          <td>
+            <%= matter.cause_number%>
+          </td>
+          <td>
+            <%= matter.client%>
+          </td>
+          <td>
+            <%= matter.paralegal%>
+          </td>
+          <td>
+            <%= matter.attorney%>
+          </td>
+          <td>
+            <%= matter.kind%>
+          </td>
+          <td>
+            <%= matter.status%>
+          </td>
+          <td>
+            <%= matter.opposing_counsel%>
+          </td>
+          <td>
+            <%= matter.opposing_party%>
+          </td>
+          <td>
+            <%= link_to "See Detail", matter_path(id: matter.id) %>
+          </td>
+        </tr>
+          <%end%>
+        </table>
         <h3>All Documents </h3>
         <table class="table">
           <thead>
             <tr>
               <th class="mdl-data-table__cell--non-numeric">Document ID</th>
+              <th>Matter Id</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Issues</th>
               <th>Status</th>
               <th>Date</th>
-              <th>Title</th>
-              <th>Link</th>
-
+              <th>Detail</th>
             </tr>
           </thead>
           <tbody>
             <% @documents.each do |document|%>
               <tr>
                 <td><%=document.id%> </td>
+                <td><%=document.matter_id%></td>
+                <td><%=document.title%></td>
+                <td><%=document.category%></td>
+                <td><%=document.issues%></td>
                 <td><%=document.status%> </td>
                 <td><%=document.date%></td>
-                <td><%=document.title%></td>
                 <td><%= link_to "See Detail", document_path(id: document.id) %></td>
               </tr>
             <%end%>
@@ -122,4 +164,3 @@
 
     </div>
   </div>
-</div>

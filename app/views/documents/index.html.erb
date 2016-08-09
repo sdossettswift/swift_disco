@@ -1,15 +1,34 @@
-<div class="container">
-  <div class="card">
+<div class="card">
     <div class="container">
-      <div class="list-group">
-          <h1>Documents</h1>
-          <ul>
-            <% @documents.each do |document| %>
-              <%=document.description%>
-              <%= link_to "See Detail", document_path(id: document.id) %> </br>
-              <%end%>
-          </ul>
-      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Document ID</th>
+            <th>Matter Id</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Issues</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @documents.each do |document|%>
+            <tr>
+              <td><%=document.id%> </td>
+              <td><%=document.matter_id%></td>
+              <td><%=document.title%></td>
+              <td><%=document.category%></td>
+              <td><%=document.issues%></td>
+              <td><%=document.status%> </td>
+              <td><%=document.date%></td>
+              <td><%= link_to "See Detail", document_path(id: document.id) %></td>
+            </tr>
+          <%end%>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
-</div>

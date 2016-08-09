@@ -6,4 +6,5 @@ has_many :usermatters
 attachment :profile_image, destroy: false
 ROLE = ['Attorney', 'Client', 'Admin', 'Law Office']
 
+
 end
