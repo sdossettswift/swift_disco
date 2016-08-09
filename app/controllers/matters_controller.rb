@@ -1,7 +1,7 @@
 class MattersController < ApplicationController
 
   def new
-    @matter = Matter.new
+    @matters = Matter.new
   end
 
   def index
@@ -9,20 +9,20 @@ class MattersController < ApplicationController
   end
 
   def create
-    @matter = Matter.new
-    @matter.cause_number = params[:matter][:cause_number]
-    @matter.year = params[:matter][:year]
-    @matter.client_id = params[:matter][:client_id]
-    @matter.client = params[:matter][:client]
-    @matter.attorney = params[:matter][:attorney]
-    @matter.paralegal = params[:matter][:paralegal]
-    @matter.kind = params[:matter][:kind]
-    @matter.status = params[:matter][:status]
-    @matter.opposing_party = params[:matter][:opposing_party]
-    @matter.opposing_counsel = params[:matter][:opposing_counsel]
-    @matter.judge = params[:matter][:judge]
-    @matter.court = params[:matter][:court]
-    if @matter.save
+    @matters = Matter.new
+    @matters.cause_number = params[:matter][:cause_number]
+    @matters.year = params[:matter][:year]
+    @matters.client_id = params[:matter][:client_id]
+    @matters.client = params[:matter][:client]
+    @matters.attorney = params[:matter][:attorney]
+    @matters.paralegal = params[:matter][:paralegal]
+    @matters.kind = params[:matter][:kind]
+    @matters.status = params[:matter][:status]
+    @matters.opposing_party = params[:matter][:opposing_party]
+    @matters.opposing_counsel = params[:matter][:opposing_counsel]
+    @matters.judge = params[:matter][:judge]
+    @matters.court = params[:matter][:court]
+    if @matters.save
         redirect_to root_path, notice: "Matter Added!"
     else render :new
     end
@@ -30,29 +30,29 @@ class MattersController < ApplicationController
 
   def show
 
-    @matter = Matter.find_by id: params[:id]
+    @matters = Matter.find_by id: params[:id]
     @documents = @matter.find.documents.all
 
   end
 
   def edit
-    @matter = Matter.find_by id: params[:id]
+    @matters = Matter.find_by id: params[:id]
   end
 
   def update
-   @matter = Matter.find_by id: params[:id]
-   @matter.cause_number = params[:matter][:cause_number]
-   @matter.year = params[:matter][:year]
-   @matter.client_id = params[:matter][:client_id]
-   @matter.client = params[:matter][:client]
-   @matter.attorney = params[:matter][:attorney]
-   @matter.paralegal = params[:matter][:paralegal]
-   @matter.kind = params[:matter][:kind]
-   @matter.opposing_party = params[:matter][:opposing_party]
-   @matter.opposing_counsel = params[:matter][:opposing_counsel]
-   @matter.judge = params[:matter][:judge]
-   @matter.court = params[:matter][:court]
-   @matter.status = params[:matter][:status]
+   @matters = Matter.find_by id: params[:id]
+   @matters.cause_number = params[:matter][:cause_number]
+   @matters.year = params[:matter][:year]
+   @matters.client_id = params[:matter][:client_id]
+   @matters.client = params[:matter][:client]
+   @matters.attorney = params[:matter][:attorney]
+   @matters.paralegal = params[:matter][:paralegal]
+   @matters.kind = params[:matter][:kind]
+   @matters.opposing_party = params[:matter][:opposing_party]
+   @matters.opposing_counsel = params[:matter][:opposing_counsel]
+   @matters.judge = params[:matter][:judge]
+   @matters.court = params[:matter][:court]
+   @matters.status = params[:matter][:status]
 
    if @matter.save
        redirect_to root_path, notice: "Matter Updated!"

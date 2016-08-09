@@ -34,16 +34,7 @@
         </form> -->
         <ul class="nav navbar-nav navbar-right">
           <%if @current_user%>
-            <%if @current_matter%>
-              <li><%= link_to @current_matter.cause_number, root_path%></li>
-              <%if @current_user.role="Attorney"%>
-                <li><%= link_to 'Select Another Case', leave_matter_path%></li>
-                <%else%>
-                <%end%>
-            <a class="navbar-brand" href="#"></a>
-              <%else%>
-              <li><%= link_to "Select Matter", select_current_matter_path%></li>
-              <%end%>
+              <li><%= link_to @current_user.full_name, root_path%></li>
               <li><%= link_to "Home", root_path%></li>
               <li><%= link_to "Sign Out", sign_out_path%></li>
           <%else%>
@@ -52,7 +43,7 @@
            <%end%>
     </ul>
   </nav>
-  
+
    <% if notice %>
     <div class="container">
        <div class="alert alert-info" role="alert">

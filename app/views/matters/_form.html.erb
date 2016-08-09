@@ -1,6 +1,6 @@
-<% if @matter.errors.any? %>
+<% if @matters.errors.any? %>
   <div class="alert alert-danger" role="alert">
-    <% @matter.errors.full_messages.each do |msg| %>
+    <% @matters.errors.full_messages.each do |msg| %>
       <%= msg %><br>
     <% end %>
   </div>
@@ -8,9 +8,8 @@
 
 <div class="well">
 
-<%=simple_form_for @matter do |f|%>
+<%=simple_form_for @matters do |f|%>
 <%= f.input :cause_number %>
-  <%= f.association :matter, label_method: :cause_number %>
 <%= f.input :casename %>
 <%= f.association :users, label_method: :full_name, value_method: :id, include_blank: true %>
 <%= f.input :kind %>

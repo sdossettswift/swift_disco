@@ -1,19 +1,19 @@
 class MatterController < ApplicationController
 
   def new
-    @matter = Matter.new
+    @matters = Matter.new
   end
 
   def create
-    @matter = Matter.new
-    @matter.cause_number = params[:matter][:cause_number]
-    @matter.year = params[:matter][:year]
-    @matter.client_id = params[:matter][:client_id]
-    @matter.client = params[:matter][:client]
-    @matter.attorney = params[:matter][:attorney]
-    @matter.paralegal = params[:matter][:paralegal]
-    @matter.type = params[:matter][:type]
-    @matter.opposing_party = params[:matter][:opposing_party]
+    @matters = Matter.new
+    @matters.cause_number = params[:matter][:cause_number]
+    @matters.year = params[:matter][:year]
+    @matters.client_id = params[:matter][:client_id]
+    @matters.client = params[:matter][:client]
+    @matters.attorney = params[:matter][:attorney]
+    @matters.paralegal = params[:matter][:paralegal]
+    @matters.type = params[:matter][:type]
+    @matters.opposing_party = params[:matter][:opposing_party]
 
     if @matter.save
         redirect_to root_path, notice: "Matter Added!"
