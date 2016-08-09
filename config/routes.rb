@@ -21,6 +21,11 @@ resources :users
 
 
 resources :user_matters
+resources :documents
+resources :events
+resources :photos
+resources :people
+
 
   get 'dashboard' => 'dashboard#show', as: :dashboard
   get 'roles/all' => 'roles#all', as: :all_users_by_role
@@ -35,30 +40,7 @@ resources :user_matters
   patch 'matters/:id' => 'matters#update'
 
 
-  #events
-    post 'events' => 'events#create'
-    get 'events/new' => 'events#new', as: :new_event
-    get 'events/:id' => 'events#show', as: :event
-    get 'events/:id/edit' => 'events#edit', as: :edit_event
-    delete 'events/:id' => 'events#delete'
-    patch 'events/:id' => 'events#update'
 
-    #photos
-      post 'photos' => 'photos#create'
-      get 'photos/new' => 'photos#new', as: :new_photo
-      get 'photos/:id' => 'photos#show', as: :photo
-      get 'photos/:id/edit' => 'photos#edit', as: :edit_photo
-      delete 'photos/:id' => 'photos#delete'
-      patch 'photos/:id' => 'photos#update'
-
-      #documents
-        post 'documents' => 'documents#create'
-        get 'documents/new' => 'documents#new', as: :new_document
-        get 'documents/:id' => 'documents#show', as: :document
-        get 'documents/:id/edit' => 'documents#edit', as: :edit_document
-        delete 'documents/:id' => 'documents#delete'
-        patch 'documents/:id' => 'documents#update'
-        get 'documents' => 'documents#index', as: :document_index
 
 
   #api_events

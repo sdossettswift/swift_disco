@@ -5,7 +5,7 @@
           <li><%= link_to 'Display All Users', users_path %></li>
           <li><%= link_to 'Create Matter', new_matter_path %></li>
           <li><%= link_to 'Display All Matters', all_matters_path %></li>
-          <li><%= link_to 'Display All Documents', document_index_path %></li>
+          <li><%= link_to 'Display All Documents', documents_path %></li>
           <li><%= link_to "Create User", new_user_path%></li>
           <li><%= link_to "Create User-Matters", new_user_matter_path%></li>
         </ul>
@@ -49,15 +49,16 @@
         <table class="table">
           <thead>
             <tr>
-              <th class="mdl-data-table__cell--non-numeric">User</th>
-              <th>Matter</th>
+              <th class="mdl-data-table__cell--non-numeric">Matter</th>
+              <th>User</th>
             </tr>
           </thead>
           <tbody>
             <% @user_matters.each do |user_matter|%>
               <tr>
-              <td>  <%=user_matter.matter_id%> </td>
+              <td> <%=user_matter.matter_id%> </td>
               <td> <%=user_matter.user_id%> </td>
+
               </tr>
             <%end%>
             </tr>
@@ -77,13 +78,7 @@
           Cause Number
         </th>
         <th>
-          Client
-        </th>
-        <th>
-          Paralegal
-        </th>
-        <th>
-          Attorney
+          Case Name
         </th>
         <th>
           Type
@@ -109,13 +104,7 @@
         <%= matter.cause_number%>
       </td>
       <td>
-        <%= matter.client%>
-      </td>
-      <td>
-        <%= matter.paralegal%>
-      </td>
-      <td>
-        <%= matter.attorney%>
+        <%= matter.casename%>
       </td>
       <td>
         <%= matter.kind%>
