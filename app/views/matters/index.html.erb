@@ -1,6 +1,5 @@
 <div class="container">
   <div class="card">
-    <div class="container">
       <div class="list-group">
           <h1>Matters</h1>
           <table class="table">
@@ -12,13 +11,7 @@
                 Cause Number
               </th>
               <th>
-                Client
-              </th>
-              <th>
-                Paralegal
-              </th>
-              <th>
-                Attorney
+                Case Name
               </th>
               <th>
                 Type
@@ -44,13 +37,7 @@
               <%= matter.cause_number%>
             </td>
             <td>
-              <%= matter.client%>
-            </td>
-            <td>
-              <%= matter.paralegal%>
-            </td>
-            <td>
-              <%= matter.attorney%>
+              <%= matter.casename%>
             </td>
             <td>
               <%= matter.kind%>
@@ -73,4 +60,3 @@
       </div>
     </div>
   </div>
-</div>

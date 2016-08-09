@@ -59,6 +59,7 @@
     <div class="col-xs-12 col-sm-6 col-md-8">
         <div class="card">
             <table class="table">
+              <h3>Documents</h3>
               <thead>
                 <tr>
                   <th>Document ID</th>
@@ -84,64 +85,34 @@
               </tbody>
             </table>
             <div class="users">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>User ID</th>
-                    <th>Full Name</th>
-                    <th>Role</th>
-                    <th>Link</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <% @users.each do |user|%>
+              <table = "table">
+                <h3>Events</h3>
+                <table class="table">
+                  <thead>
                     <tr>
-                      <td><%=user.id%> </td>
-                      <td><%=user.full_name%></td>
-                      <td><%=user.role%></td>
-                      <td><%= link_to "Detail", user_path(id: user.id) %></td>
+                      <th>Event ID</th>
+                      <th>Year</th>
+                      <th>Month</th>
+                      <th>Headline</th>
+                      <th>Detail</th>
                     </tr>
-                  <%end%>
-                  </tr>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    <% @events.each do |event|%>
+                      <tr>
+                        <td><%=event.id%> </td>
+                        <td><%=event.year%></td>
+                        <td><%=event.month%></td>
+                        <td><%=event.headline%></td>
+                        <td><%= link_to "See Detail", event_path(id: event.id) %></td>
+                      </tr>
+                    <%end%>
+                    </tr>
+                  </tbody>
+                </table>
 
             </div>
-            <table = "table">
-              <h1>Events</h1>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Event ID</th>
-                    <th>Matter Id</th>
-                    <th>Year</th>
-                    <th>Month</th>
-                    <th>Headline</th>
-                    <th>Caption</th>
-                    <th>URL</th>
-                    <th>Detail</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% @events.each do |event|%>
-                    <tr>
-                      <td><%=event.id%> </td>
-                      <td><%=event.matter_id%></td>
-                      <td><%=event.year%></td>
-                      <td><%=event.month%></td>
-                      <td><%=event.headline%></td>
-                      <td><%=event.caption%> </td>
-                      <td><%=event.url%></td>
-                      <td><%= link_to "See Detail", event_path(id: event.id) %></td>
-                    </tr>
-                  <%end%>
-                  </tr>
-                </tbody>
-              </table>
 
-
-            </table>
 
 
           </div>
