@@ -31,7 +31,17 @@ class MattersController < ApplicationController
   def show
 
     @matters = Matter.find_by id: params[:id]
-    @documents = @matter.find.documents.all
+    @user_matter = UserMatter.new
+    @users = @matters.users.all
+    @events = @matters.events.all
+    @documents = @matters.documents.all
+    @people = @matters.people.all
+    @photos = @matters.photos.all
+
+    @client = @matters.users.find_by role: params[:role]
+    @attorney = @matters.users.find_by role: params[:role]
+    @paralegal = @matters.users.find_by role: params[:role]
+
 
   end
 
