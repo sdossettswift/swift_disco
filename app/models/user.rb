@@ -1,9 +1,11 @@
 class User < ApplicationRecord
 has_secure_password
-belongs_to :matter
-has_many :documents, through: :matter
-
 has_many :user_matters
+has_many :matters, through: :user_matters
+has_many :documents, through: :matters
+
+include Gravtastic
+gravtastic
 attachment :profile_image, destroy: false
 ROLE = ['Attorney', 'Client', 'Admin', 'Law Office']
 validates :role, presence: true

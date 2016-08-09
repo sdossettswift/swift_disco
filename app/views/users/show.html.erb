@@ -2,12 +2,17 @@
   <div class="card">
     <div class="container">
 
-      <%=@user.email%>
-      <%=@user.role %>
-      <%=@user.username %>
-      <%=@user.first_name %>
-      <%=@user.middle_name%>
-      <%=@user.last_name %>
+<h1><%= @user.full_name%></h1>
+<%=@user.first_name %>
+<%=@user.middle_name%>
+<%=@user.last_name %>
+
+<h3>Username: <%=@user.username %></h3>
+<h4>Email:<%=@user.email%></h4>
+<h4>Role:<%=@user.role %></h4>
+
+<%= image_tag @user.gravatar_url %>
+
 
     <%= link_to "Update User", edit_user_path%>
     </div>
