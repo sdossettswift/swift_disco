@@ -1,0 +1,8 @@
+<tr>
+  <%if user.blank?%>
+    <td> <%=link_to "Assign #{field_name}",  new_user_matter_path%></td>
+  <%else%>
+    <th><%= field_name%> </td>
+    <td><%= user.full_name%> </td>
+<%end%>
+<tr>

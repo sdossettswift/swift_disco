@@ -7,7 +7,7 @@ class UserMattersController < ApplicationController
   def create
       @user_matter = UserMatter.new(user_matter_params)
       if @user_matter.save
-      redirect_to matter_path(:id)
+      redirect_to dashboard_path
       else
         render :new
       end

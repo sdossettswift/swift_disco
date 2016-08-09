@@ -11,6 +11,7 @@ class MattersController < ApplicationController
   def create
     @matters = Matter.new
     @matters.cause_number = params[:matter][:cause_number]
+    @matters.casename = params[:matter][:casename]
     @matters.year = params[:matter][:year]
     @matters.client_id = params[:matter][:client_id]
     @matters.client = params[:matter][:client]
@@ -38,12 +39,10 @@ class MattersController < ApplicationController
     @people = @matters.people.all
     @photos = @matters.photos.all
 
-    @client = @matters.users.find_by role: params[:role]
-    @attorney = @matters.users.find_by role: params[:role]
-    @paralegal = @matters.users.find_by role: params[:role]
-
-
-  end
+    @client = @matters.users.by_role("Client")
+    @attorney = @matters.users.by_role("Attorney")
+    @paralegal = @matters.users.by_role("Law Office")
+end
 
   def edit
     @matters = Matter.find_by id: params[:id]
@@ -52,6 +51,7 @@ class MattersController < ApplicationController
   def update
    @matters = Matter.find_by id: params[:id]
    @matters.cause_number = params[:matter][:cause_number]
+   @matters.casename = params[:matter][:casename]
    @matters.year = params[:matter][:year]
    @matters.client_id = params[:matter][:client_id]
    @matters.client = params[:matter][:client]

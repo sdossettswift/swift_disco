@@ -5,29 +5,10 @@
           <h1><%= @matters.cause_number%></h1>
 
           <table class="table">
-            <tr>
-              <th>
-                Client
-              </th>
-              <td>
-                <%= @client%>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Attorney
-              </th>
-              <td>
-                <%= @attorney%>
-              </td>
-              <tr>
-                <th>
-                  Paralegal
-                </th>
-                <td>
-                  <%= @paralegal%>
-                </td>
-              </tr>
+              <%= render 'user_role_row', user: @client.first, field_name: 'Client' %>
+              <%= render 'user_role_row', user: @attorney.first, field_name: 'Attorney' %>
+              <%= render 'user_role_row', user: @paralegal.first, field_name: 'Paralegal' %>
+
               <tr>
                 <th>
                   Case Type
