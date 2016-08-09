@@ -30,6 +30,8 @@ class MattersController < ApplicationController
 
   def show
     @matter = Matter.find_by id: params[:id]
+    @user_matter = UserMatter.new
+    @current_matter =  Matter.find_by id: params[:id]
   end
 
   def edit

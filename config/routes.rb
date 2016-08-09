@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
 
 
+get 'user_matters/new' => 'user_matters#new', as: :new_user_matter
+post 'user_matters' => 'user_matters#create'
+
   get 'dashboard' => 'dashboard#show', as: :dashboard
   get 'roles/all' => 'roles#all', as: :all_users_by_role
 
@@ -75,5 +78,5 @@ resources :users
     delete 'sign_in' => 'sessions#delete', as: :end_session
     get 'sign_out' => 'sessions#delete', as: :sign_out
 
-  root 'welcome#hello'
+  root 'dashboard#show'
 end

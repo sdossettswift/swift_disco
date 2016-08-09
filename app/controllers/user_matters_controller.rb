@@ -1,7 +1,4 @@
 class UserMattersController < ApplicationController
-  before_action do
-    require_login!
-  end
 
   def new
     @user_matter = UserMatter.new
@@ -10,7 +7,7 @@ class UserMattersController < ApplicationController
   def create
     @user_matter = UserMatter.new(user_matter_params)
     if @user_matter.save
-      redirect_to root_path, notice: "User Matter Created"
+       render :new
     else
       render :new
     end

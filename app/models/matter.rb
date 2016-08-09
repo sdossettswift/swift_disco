@@ -1,5 +1,5 @@
 class Matter < ApplicationRecord
-  has_many :users, through: :user_matters
+  has_many :users
   has_many :user_matters
 
   has_many :events
