@@ -19,20 +19,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new
-    @event.headline = params[:event][:headline]
-    @event.text = params[:event][:text]
-    @event.year = params[:event][:year]
-    @event.month = params[:event][:month]
-    @event.day = params[:event][:day]
-    @event.hour = params[:event][:hour]
-    @event.minute = params[:event][:minute]
-    @event.caption = params[:event][:caption]
-    @event.credit = params[:event][:credit]
-    @event.url = params[:event][:url]
-    @event.thumbnail = params[:event][:thumbnail]
-    @event.matter_id = params[:event][:matter_id]
-
+    @event = Event.new(event_params)
     if @event.save
       redirect_to root_path, notice: "Event Added"
       else
@@ -41,24 +28,12 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = @current_user.events.find_by! id: params[:id]
+    @event = Event.find_by! id: params[:id]
   end
 
   def update
-    @event = @current_user.events.find_by! id: params[:id]
-    @event.headline = params[:event][:headline]
-    @event.text = params[:event][:text]
-    @event.year = params[:event][:year]
-    @event.month = params[:event][:month]
-    @event.day = params[:event][:day]
-    @event.hour = params[:event][:hour]
-    @event.minute = params[:event][:minute]
-    @event.caption = params[:event][:caption]
-    @event.credit = params[:event][:credit]
-    @event.url = params[:event][:url]
-    @event.thumbnail = params[:event][:thumbnail]
-      @event.matter_id = params[:event][:matter_id]
-    if @event.save
+    @event = Event.find_by! id: params[:id]
+    if @event.update(event_params)
       redirect_to root_path, notice: "Event Updated!"
     else
       render :edit
@@ -70,4 +45,9 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to root_path, notice: "Event Deleted"
   end
+
+  def event_params
+    params.require(:event).permit(:headline, :text, :year, :month, :day, :hour, :minute, :caption, :credit, :url, :thumbnail, :matter_id)
+  end
+
 end
