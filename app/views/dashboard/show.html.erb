@@ -1,131 +1,47 @@
-<div class="container">
+
   <div class="card">
-    <h1><%= link_to "Users", users_path%></h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>User ID </th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Full Name</th>
-            <th>Role </th>
-            <th>Link </th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user|%>
-            <tr>
-            <td> <%=user.id%></td>
-            <td>  <%=user.username%> </td>
-            <td> <%=user.email%> </td>
-            <td> <%=user.full_name%> </td>
-            <td> <%=user.role%> </td>
-            <td> <%=link_to 'More Info', user_path(id: user.id)%> </td>
-            </tr>
-          <%end%>
-          </tr>
-        </tbody>
-      </table>
+    <h3><%=@current_user.full_name%> <small><%=@current_user.role%></small></h3><hr>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="card">
+            <h2>Matters</h2>
+            <hr>
+            <h4><%= link_to 'Display All Matters', matters_path %></h4>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="card">
+            <h2>Documents</h2>
+            <hr>
+            <h4><%= link_to "All Documents", documents_path%></h4>
+            <h4><%= link_to "Add Document", new_document_path%></h4>
+          </div>
+      </div>
     </div>
 <div class="spacer"></div>
 
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="card">
+              <h2>Events</h2><hr>
+              <h4><%= link_to "All Events", events_path%></h4>
+              <h4><%= link_to "Add Event", new_event_path%></h4>
+          </div>
+        </div>
 
-<div class="spacer"></div>
+        <div class="col-xs-6">
+          <div class="card">
+              <h2>People</h2>
+              <hr>
+              <h4><%= link_to "All People", people_path%></h4>
+              <h4><%= link_to "Add Person", new_person_path%></h4>
+            </div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+        </div>
 
-  <div class="card">
-    <h1><%= link_to "Matters", matters_path%></h1>
-    <table class="table">
-      <tr>
-        <th>
-          ID
-        </th>
-        <th>
-          Cause Number
-        </th>
-        <th>
-          Case Name
-        </th>
-        <th>
-          Type
-        </th>
-        <th>
-          Status
-        </th>
-        <th>
-          Opposing Counsel
-        </th>
-        <th>
-          Opposing Party
-        </th>
-        <th>
-          Link
-        </th>
-      </tr>
-      <% @matters.each do |matter| %>
-      <td>
-        <%= matter.id%>
-      </td>
-      <td>
-        <%= matter.cause_number%>
-      </td>
-      <td>
-        <%= matter.casename%>
-      </td>
-      <td>
-        <%= matter.kind%>
-      </td>
-      <td>
-        <%= matter.status%>
-      </td>
-      <td>
-        <%= matter.opposing_counsel%>
-      </td>
-      <td>
-        <%= matter.opposing_party%>
-      </td>
-      <td>
-        <%= link_to "See Detail", matter_path(id: matter.id) %>
-      </td>
-    </tr>
-      <%end%>
-    </table>
+      </div>
+
+    </div>
 
   </div>
-<div class="spacer"></div>
-  <div class="card">
-     <h1><%= link_to "Documents", documents_path%></h1>
-     <table class="table">
-       <thead>
-         <tr>
-           <th class="mdl-data-table__cell--non-numeric">Document ID</th>
-           <th>Matter Id</th>
-           <th>Title</th>
-           <th>Category</th>
-           <th>Issues</th>
-           <th>Status</th>
-           <th>Date</th>
-           <th>Detail</th>
-         </tr>
-       </thead>
-       <tbody>
-         <% @documents.each do |document|%>
-           <tr>
-             <td><%=document.id%> </td>
-             <td><%=document.matter_id%></td>
-             <td><%=document.title%></td>
-             <td><%=document.category%></td>
-             <td><%=document.issues%></td>
-             <td><%=document.status%> </td>
-             <td><%=document.date%></td>
-             <td><%= link_to "See Detail", document_path(id: document.id) %></td>
-           </tr>
-         <%end%>
-         </tr>
-       </tbody>
-     </table>
-   </div>
- </div>
-    </div>
-
-
-</div>
