@@ -33,6 +33,8 @@
         </form> -->
         <ul class="nav navbar-nav navbar-right">
           <%if @current_user%>
+            <li><%= link_to  @current_user.full_name, dashboard_path %></li>
+
               <li><%= link_to 'Add Document', new_document_path%></li>
               <li><%= link_to 'Add Event', new_event_path%></li>
               <li><%= link_to "Matters", matters_path%></li>
