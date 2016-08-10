@@ -1,4 +1,4 @@
 class UserMatter < ApplicationRecord
-  belongs_to :user
-  belongs_to :matter
+    belongs_to :user
+    belongs_to :matter
 end

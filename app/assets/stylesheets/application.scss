@@ -1,32 +1,27 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap-material-design';
-  .body {
+.body {
     display: flex;
     min-height: 90vh;
     flex-direction: column;
-  }
-
-  .spacer{
-    margin: 10px;
-  }
-
-  .main {
-    flex: 1 0 auto;
-  }
-
-  *{
-    font-family: 'Avenir', sans-serif;
-  }
-
-  h1{
-        text-align: center;
-      }
-.footer{
-  text-align: center;
-  background-color: white;
 }
-
-.card{
-  padding: 5px 10px; 
+.spacer {
+    margin: 10px;
+}
+.main {
+    flex: 1 0 auto;
+}
+* {
+    font-family: 'Avenir', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+.footer {
+    text-align: center;
+    background-color: white;
+}
+.card {
+    padding: 5px 10px;
 }
