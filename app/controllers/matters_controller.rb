@@ -5,7 +5,7 @@ class MattersController < ApplicationController
   end
 
   def index
-    @matters = Matter.all
+    @matters = @current_user.matters.all
   end
 
   def create

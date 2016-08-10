@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :user_matters
   has_many :matters, through: :user_matters
+  has_many :documents, through: :matters
 
   scope :by_role, -> (role_name) { where(role: role_name) }
 
