@@ -9,11 +9,11 @@ class Admin::UsersController < ApplicationController
     end
 
     def show
-      @user = User.find_by id: params[:id]
+      @user = User.find params[:id]
     end
 
     def edit
-      @user = User.find_by id: params[:id]
+      @user = User.find params[:id]
     end
 
 
@@ -28,7 +28,7 @@ class Admin::UsersController < ApplicationController
 
 
   def update
-    @user = User.find_by id: params[:id]
+    @user = User.find params[:id]
     if @user.update(user_params)
         redirect_to root_path, notice: "User Updated!"
       else
@@ -38,11 +38,10 @@ class Admin::UsersController < ApplicationController
 
 
     def profile
-      @user = User.find_by id: params[:id]
+      @user = User.find params[:id]
     end
 
     def user_params
       params.require(:user).permit(:username, :email, :password_digest, :person_id, :first_name, :middle_name, :last_name, :full_name, :maiden_name, :gender, :role, :dob, :profile_image_id  )
-
     end
   end

@@ -15,7 +15,7 @@ class Admin::UserMattersController < ApplicationController
 
 
     def update
-      @user_matter = UserMatter.find_by id: params[:id]
+      @user_matter = UserMatter.find params[:id]
       if @user_matter.update(user_matter_params)
         redirect_to api_user_matters_path
       else
@@ -30,7 +30,6 @@ class Admin::UserMattersController < ApplicationController
   private
     def user_matter_params
       params.require(:user_matter).permit(:matter_id, :full_name, :casename, :user_id, :user, :matter, :id)
-
     end
 
 end
