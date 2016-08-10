@@ -1,42 +1,42 @@
-    <% if @event.errors.any? %>
-      <div class="alert alert-danger" role="alert">
-        <% @event.errors.full_messages.each do |msg| %>
-          <%= msg %><br>
-        <% end %>
-      </div>
+<% if @event.errors.any? %>
+<div class="alert alert-danger" role="alert">
+    <% @event.errors.full_messages.each do |msg| %>
+    <%= msg %><br>
     <% end %>
+</div>
+<% end %>
 
-    <div class="well">
+<div class="well">
 
     <%= simple_form_for @event do |f| %>
 
-      <div class="form-group">
+    <div class="form-group">
         <%= f.association :matter, label_method: :cause_number %>
 
         <%= f.label :Event_name %>
         <%= f.text_field :headline, class: "form-control" %>
-      </div>
-      <%= f.input :text %>
-      <%= f.input :caption %>
-      <%= f.input :year %>
-      <%= f.input :month%>
-      <%= f.input :day%>
-      <%= f.input :hour%>
-    
-      <div class="form-group">
+    </div>
+    <%= f.input :text %>
+    <%= f.input :caption %>
+    <%= f.input :year %>
+    <%= f.input :month%>
+    <%= f.input :day%>
+    <%= f.input :hour%>
+
+    <div class="form-group">
         <%= f.label :Media_url %>
         <%= f.text_field :url, class: "form-control" %>
-      </div>
-      <!-- <div class="form-group">
+    </div>
+    <!-- <div class="form-group">
         <%= f.label :thumbnail %>
         <%= f.text_field :thumbnail, class: "form-control" %>
       </div> -->
-      <!-- <div class="form-group">
+    <!-- <div class="form-group">
         <%= f.label :credit %>
         <%= f.text_field :credit, class: "form-control" %>
       </div> -->
-      <div class="form-group">
+    <div class="form-group">
         <%= f.submit class: "btn btn-lg btn-primary"%>
-      </div>
+    </div>
     <% end %>
-  </div>
+</div>

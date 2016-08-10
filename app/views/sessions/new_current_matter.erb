@@ -1,12 +1,10 @@
 <%= form_tag do %>
-
-  <div class="mdl-textfield mdl-js-textfield" contextmenu="" id="#formwrapper">
+<div class="mdl-textfield mdl-js-textfield" contextmenu="" id="#formwrapper">
     <%= label_tag :matter %>
     <%= collection_select :matter, :id, @all_matters, :id, :cause_number, prompt: "Select a Matter" %>
-  </div>
-  <div class="form-button-wrapper">
+</div>
+<div class="form-button-wrapper">
     <%= submit_tag "Select Matter", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"%>
-
-  </div>
+</div>
 <% end %>
 </div>

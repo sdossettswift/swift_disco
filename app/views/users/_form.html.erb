@@ -1,14 +1,16 @@
 <% if @user.errors.any? %>
-  <% @user.errors.full_messages.each do |error| %>
-    <p class="alert alert-danger"><strong><%= error %></strong></p>
-  <% end %>
+<% @user.errors.full_messages.each do |error| %>
+<p class="alert alert-danger">
+    <strong><%= error %></strong>
+</p>
+<% end %>
 <% end %>
 
 <%=simple_form_for @user do |f|%>
 <%= f.input :full_name%>
 <div class="form-group">
-  <%= f.label :role %>
-  <%= f.collection_select :role, User::ROLE, :to_s, :to_s, :include_blank => true%>
+    <%= f.label :role %>
+    <%= f.collection_select :role, User::ROLE, :to_s, :to_s, :include_blank => true%>
 </div>
 <%= f.input :username%>
 <%= f.input :email%>
@@ -16,21 +18,19 @@
 <%= f.input :middle_name%>
 <%= f.input :last_name%>
 <div class="form-group">
-  <%= f.label :birthdate %>
-  <%= f.date_field:dob%>
+    <%= f.label :birthdate %>
+    <%= f.date_field:dob%>
 </div>
 <div class="form-group">
-  <%= f.label :password %>
-  <%= f.password_field :password, size: "60x12", class: "form-control" %>
+    <%= f.label :password %>
+    <%= f.password_field :password, size: "60x12", class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, size: "60x12", class: "form-control" %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, size: "60x12", class: "form-control" %>
 </div>
 
-
-
-  <div class="form-group">
+<div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
-  </div>
+</div>
 <% end %>

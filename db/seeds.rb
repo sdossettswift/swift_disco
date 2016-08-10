@@ -1,6 +1,5 @@
 matter1 = Matter.create! cause_number: "2015-293874", casename: "Smith  Divorce", kind: "Divorce", status: "Filed", opposing_party: "August Smith", opposing_counsel:"Anna Blizzard"
 
-
 document1 = Document.create! matter_id: 1, year:"2016" , month:"06", day: "", category:"Phone Records", description:"June Phone Log", hot_doc: true, issues: "", status: "1", title:"June Phone Records"
 document2 = Document.create! matter_id: 1, year:"2016" , month:"06", day: "", category:"Financials: Assets", description:"June Bank Statement", hot_doc: false, issues: "", status: "1", title:"June Bank Statement"
 document3 = Document.create! matter_id: 1, year:"2016" , month:"06", day: "", category:"Financials: Expenses", description:"June Credit Card - MasterCard ", hot_doc: false, issues: "", status: "1", title:"June Credit Card"

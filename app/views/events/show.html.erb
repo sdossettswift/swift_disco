@@ -1,18 +1,15 @@
 <div class="container">
-  <div class="card">
-    <div class="container">
+    <div class="card">
+        <div class="container">
 
-
-      <h1>  <%= @event.headline%></h1>
-
-      <h4>Event ID: <%=@event.id%> </h4>
-      <h6> <%=@event.text%></h6>
-      <h6>Date:<%=@event.year%></h6>
-      <h6><%=@event.month%></h6>
-      <h6><%=@event.day%></h6>
-      <h6><%=@event.caption%></h6>
-        <a><%=@event.url%></a>
-
+            <h1><%= @event.headline %></h1>
+            <h4>Event ID:  <%= @event.id %>  </h4>
+            <h6>  <%= @event.text %></h6>
+            <h6> Date:<%= @event.year %></h6>
+            <h6> <%= @event.month %></h6>
+            <h6> <%= @event.day %></h6>
+            <h6> <%= @event.caption %></h6>
+            <a> <%= @event.url %></a>
+        </div>
     </div>
-  </div>
 </div>

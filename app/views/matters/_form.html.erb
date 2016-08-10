@@ -1,23 +1,25 @@
 <% if @matters.errors.any? %>
-  <div class="alert alert-danger" role="alert">
+<div class="alert alert-danger" role="alert">
     <% @matters.errors.full_messages.each do |msg| %>
-      <%= msg %><br>
+    <%= msg %><br>
     <% end %>
-  </div>
+</div>
 <% end %>
 
 <div class="well">
 
-<%=simple_form_for @matters do |f|%>
-<%= f.input :cause_number %>
-<%= f.input :casename %>
-<%= f.association :users, label_method: :full_name, value_method: :id, include_blank: true %>
-<%= f.input :kind %>
-<%= f.input :opposing_party %>
-<%= f.input :opposing_counsel %>
-<%= f.input :judge %>
-<%= f.input :year %>
-<%= f.input :status %>
-<%= f.input :court %>
-<%= f.button :submit %>
-<%end%>
+    <%=simple_form_for @matters do |f|%>
+    <%= f.input :cause_number %>
+    <%= f.input :casename %>
+    <%= f.association :users, label_method: :full_name, value_method: :id, include_blank: true %>
+    <%= f.input :kind %>
+    <%= f.input :opposing_party %>
+    <%= f.input :opposing_counsel %>
+    <%= f.input :judge %>
+    <%= f.input :year %>
+    <%= f.input :status %>
+    <%= f.input :court %>
+    <%= f.button :submit %>
+    <%end%>
+
+</div>
