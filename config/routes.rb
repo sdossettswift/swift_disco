@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    get 'dashboard/show'
     resources :user_matters
     resources :matters
     resources :users
@@ -35,6 +34,7 @@ resources :people
 
 
   get 'dashboard' => 'dashboard#show', as: :dashboard
+  get 'admin/dashboard' => 'admin/dashboard#show', as: :admin_dashboard
   get 'roles/all' => 'roles#all', as: :all_users_by_role
 
   #matters
