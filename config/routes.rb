@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :photos
     resources :people
     resources :matters
+    resources :users
 
     namespace :admin do
         resources :user_matters
