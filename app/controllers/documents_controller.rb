@@ -10,7 +10,7 @@ class DocumentsController < ApplicationController
   end
 
   def index
-    @documents = @current_user.documents.all
+    @documents = @current_user.documents
   end
 
   def new

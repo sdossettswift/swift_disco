@@ -7,7 +7,7 @@ class Admin::UserMattersController < ApplicationController
     def create
       @user_matter = UserMatter.create(user_matter_params)
       if @user_matter.save
-      redirect_to dashboard_path
+      redirect_to admin_dashboard_path
       else
         render :new
       end
@@ -17,7 +17,7 @@ class Admin::UserMattersController < ApplicationController
     def update
       @user_matter = UserMatter.find params[:id]
       if @user_matter.update(user_matter_params)
-        redirect_to api_user_matters_path
+        redirect_to admin_user_matters_path
       else
         render :new
       end
