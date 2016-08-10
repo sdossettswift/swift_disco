@@ -84,5 +84,5 @@ delete 'api/matters/:id' => 'api/matters#delete'
     delete 'sign_in' => 'sessions#delete', as: :end_session
     get 'sign_out' => 'sessions#delete', as: :sign_out
 
-  root 'dashboard#show'
+  root 'welcome#hello'
 end
