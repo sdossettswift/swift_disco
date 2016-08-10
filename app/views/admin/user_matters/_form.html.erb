@@ -1,6 +1,5 @@
-
 <%=simple_form_for [:admin, @user_matter] do |f|%>
-  <%= f.association :matter, label_method: :casename, value_method: :id%>
-  <%= f.association :user, label_method: :full_name, value_method: :id %>
-  <%= f.button :submit%>
+<%= f.association :matter, label_method: :casename, value_method: :id%>
+<%= f.association :user, label_method: :full_name, value_method: :id %>
+<%= f.button :submit%>
 <%end%>
