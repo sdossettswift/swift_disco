@@ -1,7 +1,6 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap-material-design';
-@import 'https://fonts.googleapis.com/css?family=Dosis:300,400|Roboto:400,400i';
   .body {
     display: flex;
     min-height: 90vh;
@@ -17,19 +16,13 @@
   }
 
   *{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Avenir', sans-serif;
   }
 
   h1{
-        font-family: 'Dosis', sans-serif;
         text-align: center;
       }
 .footer{
   text-align: center;
   background-color: white;
-}
-
-
-.secondary_nav {
-  background-color: grey; 
 }

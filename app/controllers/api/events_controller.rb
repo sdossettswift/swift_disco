@@ -50,7 +50,7 @@ end
    @event.credit = params[:event][:credit]
    @event.thumbnail = params[:event][:thumbnail]
 
-     if @event.save
+     if @event.update
        render :show, status: 200 #created
      else
        render json: {errors: @event.errors}, status: 422 #error

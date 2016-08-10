@@ -41,7 +41,7 @@ resources :people
 
 
 
-
+get 'matters/:id/timeline' => 'matters#timeline', as: :timeline
 
   #api_events
     get 'api/events/new' => 'api/events#new'
@@ -51,6 +51,17 @@ resources :people
     patch 'api/events/:id' => 'api/events#update'
     put 'api/events/:id' => 'api/events#update'
     delete 'api/events/:id' => 'api/events#delete'
+
+
+#api_matters
+get 'api/matters/new' => 'api/matters#new'
+post 'api/matters' => 'api/matters#create'
+get 'api/matters' => 'api/matters#index'
+get 'api/matters/:id' => 'api/matters#show'
+patch 'api/matters/:id' => 'api/matters#update'
+put 'api/matters/:id' => 'api/matters#update'
+delete 'api/matters/:id' => 'api/matters#delete'
+
 
   #users
 
