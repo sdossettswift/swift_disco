@@ -1,2 +1,0 @@
-module Case::MatterHelper
-end
