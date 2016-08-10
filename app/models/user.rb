@@ -9,8 +9,8 @@ class User < ApplicationRecord
 
   gravtastic
   attachment :profile_image, destroy: false
-  ROLE = ['Attorney', 'Client', 'Admin', 'Law Office']
+  ROLE = ['Attorney', 'Client', 'Law Office']
   validates :username, presence: true, uniqueness: true
-  validates :email, presence: true
+  validates :email,  presence: true, uniqueness: true
 
 end

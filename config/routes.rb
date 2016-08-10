@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+
+  namespace :admin do
+    get 'dashboard/show'
+    resources :user_matters
+    resources :matters
+    resources :users
+  end
+
   get 'intake/case_analysis'
 
   use_doorkeeper
@@ -20,7 +28,6 @@ resources :users
 
 
 
-resources :user_matters
 resources :documents
 resources :events
 resources :photos

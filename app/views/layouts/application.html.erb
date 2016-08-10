@@ -33,7 +33,9 @@
         </form> -->
         <ul class="nav navbar-nav navbar-right">
           <%if @current_user%>
-              <li><%= link_to @current_user.full_name, root_path%></li>
+              <li><%= link_to 'Add Document', new_document_path%></li>
+              <li><%= link_to 'Add Event', new_event_path%></li>
+              <li><%= link_to "Matters", matters_path%></li>
               <li><%= link_to "Home", root_path%></li>
               <li><%= link_to "Sign Out", sign_out_path%></li>
           <%else%>

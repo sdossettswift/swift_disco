@@ -7,7 +7,6 @@
           <li><%= link_to 'Display All Matters', all_matters_path %></li>
           <li><%= link_to 'Display All Documents', documents_path %></li>
           <li><%= link_to "Create User", new_user_path%></li>
-          <li><%= link_to "Create User-Matters", new_user_matter_path%></li>
         </ul>
         </div>
       </div>
@@ -44,27 +43,7 @@
     </div>
 <div class="spacer"></div>
 
-  <div class="card">
-    <h1><%= link_to "All User Matters", root_path%></h1>
-        <table class="table">
-          <thead>
-            <tr>
-              <th class="mdl-data-table__cell--non-numeric">Matter</th>
-              <th>User</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @user_matters.each do |user_matter|%>
-              <tr>
-              <td> <%=user_matter.matter_id%> </td>
-              <td> <%=user_matter.user_id%> </td>
 
-              </tr>
-            <%end%>
-            </tr>
-          </tbody>
-        </table>
-  </div>
 <div class="spacer"></div>
 
   <div class="card">
