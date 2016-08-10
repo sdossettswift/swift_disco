@@ -34,6 +34,10 @@
         <ul class="nav navbar-nav navbar-right">
           <%if @current_user%>
             <li><%= link_to  @current_user.full_name, dashboard_path %></li>
+            <%if @current_user.role =="Admin"%>
+              <li><%= link_to  'Admin Dashboard', admin_dashboard_path %></li>
+              <%else%>
+              <%end%>
 
               <li><%= link_to 'Add Document', new_document_path%></li>
               <li><%= link_to 'Add Event', new_event_path%></li>
