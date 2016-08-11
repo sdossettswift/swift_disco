@@ -1,98 +1,100 @@
-<div class="wrapper">
-    <div class="row">
-        <div class="col-xs-6 col-md-4">
-            <div class="card">
-                <h1><%= @matters.cause_number%></h1>
-                <table class="table">
-                    <%= render 'user_role_row', user: @client.first, field_name: 'Client' %>
-                    <%= render 'user_role_row', user: @attorney.first, field_name: 'Attorney' %>
-                    <%= render 'user_role_row', user: @paralegal.first, field_name: 'Paralegal' %>
-                    <tr>
-                        <th>  Case Type </th>
-                        <td> <%= @matters.kind%></td>
-                    </tr>
-                    <tr>
-                        <th> Case Status</th>
-                        <td> <%= @matters.status%></td>
-                    </tr>
-                    <tr>
-                        <th>  Opposing Party </th>
-                        <td> <%= @matters.opposing_party%> </td>
-                    </tr>
-                    <tr>
-                        <th>  Opposing Counsel </th>
-                        <td> <%= @matters.opposing_counsel%></td>
-                    </tr>
-                    <tr>
-                        <th> Judge </th>
-                        <td> <%= @matters.judge%> </td>
-                    </tr>
-                </table>
+<div class="outer-wrapper">
+  <div class="wrapper">
+      <div class="row">
+          <div class="col-xs-6 col-md-4">
+              <div class="card">
+                  <h1><%= @matters.cause_number%></h1>
+                  <table class="table">
+                      <%= render 'user_role_row', user: @client.first, field_name: 'Client' %>
+                      <%= render 'user_role_row', user: @attorney.first, field_name: 'Attorney' %>
+                      <%= render 'user_role_row', user: @paralegal.first, field_name: 'Paralegal' %>
+                      <tr>
+                          <th>  Case Type </th>
+                          <td> <%= @matters.kind%></td>
+                      </tr>
+                      <tr>
+                          <th> Case Status</th>
+                          <td> <%= @matters.status%></td>
+                      </tr>
+                      <tr>
+                          <th>  Opposing Party </th>
+                          <td> <%= @matters.opposing_party%> </td>
+                      </tr>
+                      <tr>
+                          <th>  Opposing Counsel </th>
+                          <td> <%= @matters.opposing_counsel%></td>
+                      </tr>
+                      <tr>
+                          <th> Judge </th>
+                          <td> <%= @matters.judge%> </td>
+                      </tr>
+                  </table>
 
-                <%if @current_user.role == "Client"%>
-                <%else%>
-                  <%= link_to "Update Matter", edit_matter_path%><hr>
-                <%end%>
-            </div>
-        </div>
+                  <%if @current_user.role == "Client"%>
+                  <%else%>
+                    <%= link_to "Update Matter", edit_matter_path%><hr>
+                  <%end%>
+              </div>
+          </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-8">
-            <div class="card">
-                <table class="table">
-                    <h3>Documents</h3>
-                    <thead>
-                        <tr>
-                            <th>Document ID</th>
-                            <th>Description</th>
-                            <th>Category</th>
-                            <th>Status</th>
-                            <th>Sort Date</th>
-                            <th>Link</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @documents.each do |document|%>
-                        <tr>
-                            <td> <%=document.id%> </td>
-                            <td> <%=document.description%> </td>
-                            <td> <%=document.category%> </td>
-                            <td> <%=document.status%> </td>
-                            <td> <%=document.sort_date%> </td>
-                            <td> <%= link_to "Detail", document_path(id: document.id) %> </td>
-                        </tr>
-                        <%end%>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="users">
-                <table ="table">
-                    <h3>Events</h3>
-                    <h4><%= link_to "Timeline", timeline_path%></h4>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Event ID</th>
-                                <th>Year</th>
-                                <th>Month</th>
-                                <th>Headline</th>
-                                <th>Detail</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% @events.each do |event|%>
-                            <tr>
-                                <td> <%=event.id%> </td>
-                                <td> <%=event.year%></td>
-                                <td> <%=event.month%></td>
-                                <td> <%=event.headline%></td>
-                                <td> <%= link_to "See Detail", event_path(id: event.id) %></td>
-                            </tr>
-                            <%end%>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+          <div class="col-xs-12 col-sm-6 col-md-8">
+              <div class="card">
+                  <table class="table">
+                      <h3>Documents</h3>
+                      <thead>
+                          <tr>
+                              <th>Document ID</th>
+                              <th>Description</th>
+                              <th>Category</th>
+                              <th>Status</th>
+                              <th>Sort Date</th>
+                              <th>Link</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <% @documents.each do |document|%>
+                          <tr>
+                              <td> <%=document.id%> </td>
+                              <td> <%=document.description%> </td>
+                              <td> <%=document.category%> </td>
+                              <td> <%=document.status%> </td>
+                              <td> <%=document.sort_date%> </td>
+                              <td> <%= link_to "Detail", document_path(id: document.id) %> </td>
+                          </tr>
+                          <%end%>
+                      </tr>
+                  </tbody>
+              </table>
+              <div class="users">
+                  <table ="table">
+                      <h3>Events</h3>
+                      <h4><%= link_to "Timeline", timeline_path%></h4>
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Event ID</th>
+                                  <th>Year</th>
+                                  <th>Month</th>
+                                  <th>Headline</th>
+                                  <th>Detail</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <% @events.each do |event|%>
+                              <tr>
+                                  <td> <%=event.id%> </td>
+                                  <td> <%=event.year%></td>
+                                  <td> <%=event.month%></td>
+                                  <td> <%=event.headline%></td>
+                                  <td> <%= link_to "See Detail", event_path(id: event.id) %></td>
+                              </tr>
+                              <%end%>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+</div>

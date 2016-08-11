@@ -1,37 +1,39 @@
-<div class="card">
-  <div class="container">
-      <h1>Documents</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <%if @current_user.role=="Attorney"%>
-            <th>Matter</th>
-            <%else%>
-            <%end%>
-            <th>Document ID</th>
-            <th>Category</th>
-            <th>Issues</th>
-            <th>Status</th>
-            <th>Date</th>
-            <th>Detail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @documents.each do |document| %>
+<div class="outer-wrapper">
+  <div class="card">
+    <div class="container">
+        <h1>Documents</h1>
+        <table class="table">
+          <thead>
             <tr>
               <%if @current_user.role=="Attorney"%>
-              <td><%=document.matter_id%></td>
+              <th>Matter</th>
               <%else%>
               <%end%>
-              <td><%= document.id %></td>
-              <td><%= document.category %></td>
-              <td><%= document.issues %></td>
-              <td><%= document.status %></td>
-              <td><%= document.sort_date %></td>
-              <td><%= link_to "See Detail", document_path(id: document.id) %> </td>
+              <th>Document ID</th>
+              <th>Category</th>
+              <th>Issues</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Detail</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% @documents.each do |document| %>
+              <tr>
+                <%if @current_user.role=="Attorney"%>
+                <td><%=document.matter_id%></td>
+                <%else%>
+                <%end%>
+                <td><%= document.id %></td>
+                <td><%= document.category %></td>
+                <td><%= document.issues %></td>
+                <td><%= document.status %></td>
+                <td><%= document.sort_date %></td>
+                <td><%= link_to "See Detail", document_path(id: document.id) %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>

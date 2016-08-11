@@ -1,26 +1,28 @@
-<div class="well">
-    <div class="card">
-        <h1><%= link_to "All User Matters", root_path%></h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Matter</th>
-                    <th>User</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @user_matters.each do |user_matter|%>
-                <tr>
-                    <td>
-                        <%=user_matter.matter_id%>
-                    </td>
-                    <td>
-                        <%=user_matter.user_id%>
-                    </td>
-                </tr>
-                <%end%>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<div class="outer-wrapper">
+  <div class="well">
+      <div class="card">
+          <h1><%= link_to "All User Matters", root_path%></h1>
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th class="mdl-data-table__cell--non-numeric">Matter</th>
+                      <th>User</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <% @user_matters.each do |user_matter|%>
+                  <tr>
+                      <td>
+                          <%=user_matter.matter_id%>
+                      </td>
+                      <td>
+                          <%=user_matter.user_id%>
+                      </td>
+                  </tr>
+                  <%end%>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>  
 </div>

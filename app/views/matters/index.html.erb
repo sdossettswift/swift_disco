@@ -1,31 +1,33 @@
-<div class="container">
-    <div class="card">
-        <div class="list-group">
-            <h1>My Matters</h1>
-            <table class="table">
-              <tr>
-                    <th> ID </th>
-                    <th> Cause Number </th>
-                    <th> Case Name </th>
-                    <th> Type </th>
-                    <th> Status </th>
-                    <th> Opposing Counsel </th>
-                    <th> Opposing Party </th>
-                    <th> Link </th>
-                </tr>
-              <% @matters.each do |matter| %>
+<div class="outer-wrapper">
+  <div class="container">
+      <div class="card">
+          <div class="list-group">
+              <h1>My Matters</h1>
+              <table class="table">
                 <tr>
-                <td> <%= matter.id%> </td>
-                <td> <%= matter.cause_number%> </td>
-                <td> <%= matter.casename%> </td>
-                <td> <%= matter.kind%> </td>
-                <td> <%= matter.status%> </td>
-                <td> <%= matter.opposing_counsel%> </td>
-                <td> <%= matter.opposing_party%> </td>
-                <td> <%= link_to "See Detail", matter_path(id: matter.id) %> </td>
-                </tr>
-              <%end%>
-            </table>
+                      <th> ID </th>
+                      <th> Cause Number </th>
+                      <th> Case Name </th>
+                      <th> Type </th>
+                      <th> Status </th>
+                      <th> Opposing Counsel </th>
+                      <th> Opposing Party </th>
+                      <th> Link </th>
+                  </tr>
+                <% @matters.each do |matter| %>
+                  <tr>
+                  <td> <%= matter.id%> </td>
+                  <td> <%= matter.cause_number%> </td>
+                  <td> <%= matter.casename%> </td>
+                  <td> <%= matter.kind%> </td>
+                  <td> <%= matter.status%> </td>
+                  <td> <%= matter.opposing_counsel%> </td>
+                  <td> <%= matter.opposing_party%> </td>
+                  <td> <%= link_to "See Detail", matter_path(id: matter.id) %> </td>
+                  </tr>
+                <%end%>
+              </table>
+        </div>
     </div>
-</div>
+  </div>
 </div>
