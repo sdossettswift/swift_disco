@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809204304) do
+ActiveRecord::Schema.define(version: 20160811042452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 20160809204304) do
     t.integer "matter_id"
     t.boolean "hot_doc"
     t.string  "issues"
-    t.string  "sort_date"
     t.integer "status"
     t.string  "date"
     t.string  "title"
+    t.date    "sort_date"
     t.index ["matter_id"], name: "index_documents_on_matter_id", using: :btree
   end
 

@@ -40,6 +40,15 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def upload
+    @document = Document.find_by id: params[:id]
+
+     if @document.update(params.require(:document).permit(:description, :document, :document_id, :matter_id, :description, :category, :year, :month, :day, :client_notes, :attorney_notes, :law_office_notes, :year, :hot_doc, :issues, :sort_date))
+      redirect_to document_path(id: @document.id), notice: "Document Uploaded!"
+    else
+      render :edit
+    end
+  end
 
   def delete
     @document = @current_user.documents.find_by! id: params[:id]

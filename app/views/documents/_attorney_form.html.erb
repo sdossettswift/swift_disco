@@ -12,39 +12,21 @@
 <%= simple_form_for @document do |f| %>
 
 
-  <%= f.association :matter, label_method: :cause_number %>
+  <%= f.association :matter, label_method: :casename %>
 
   <div class="form-group">
     <%= f.label :document %>
     <%= f.attachment_field :document, as: :file, class: "form-control" %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_field :description, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :year %>
-    <%= f.text_field :year, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :month %>
-    <%= f.collection_select :month, Document::MONTH, :to_s, :to_s, :include_blank => true%>
-  </div>
-  <div class="form-group">
-    <%= f.label :day %>
-    <%= f.collection_select :day, Document::DAY, :to_s, :to_s, :include_blank => true%>
-  </div>
+  <%= f.input :attorney_notes%>
+  <%= f.input :description%>
+  <%= f.input :sort_date,label: 'Sort Date', as: :date, order: [:month, :day,  :year], include_blank: true  %>
 
   <div class="form-group">
     <%= f.label :category %>
     <%= f.collection_select :category, Document::CATEGORY, :to_s, :to_s, :include_blank => true%>
   </div>
 
-  <div class="form-group">
-    <%=f.label :attorney_notes%>
-    <%=f.text_area :attorney_notes, class: "form-control" %>
-  </div>
 
   <div class="form-group">
     <%= f.submit class: "btn btn-lg btn-primary"%>

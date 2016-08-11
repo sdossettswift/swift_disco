@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
     use_doorkeeper
 
+    get 'documents/:id/upload' => 'documents#upload', as: :upload
+    
+
     resources :documents
     resources :events
     resources :photos
