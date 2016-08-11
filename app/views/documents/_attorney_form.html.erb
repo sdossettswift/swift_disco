@@ -12,6 +12,8 @@
     <%= f.association :matter, label_method: :casename %>
     <div class="form-group">
         <%= f.label :document %>
+        <%= f.input :title%>
+
         <%= f.attachment_field :document, as: :file %>
     </div>
     <%= f.input :attorney_notes%>

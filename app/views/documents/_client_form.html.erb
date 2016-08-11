@@ -14,6 +14,8 @@
         <%= f.label :document %>
         <%= f.attachment_field :document, as: :file %>
     </div>
+    <%= f.input :title%>
+
     <%= f.input :client_notes%>
     <%= f.input :description%>
     <%= f.input :sort_date,label: 'Sort Date', as: :date, order: [:month, :day,  :year], include_blank: true  %>

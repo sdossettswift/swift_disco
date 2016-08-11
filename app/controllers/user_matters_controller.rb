@@ -20,6 +20,7 @@ class UserMattersController < ApplicationController
 
 
   def update
+    
   end
 
   def index
