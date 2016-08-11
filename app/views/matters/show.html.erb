@@ -3,12 +3,10 @@
         <div class="col-xs-6 col-md-4">
             <div class="card">
                 <h1><%= @matters.cause_number%></h1>
-
                 <table class="table">
                     <%= render 'user_role_row', user: @client.first, field_name: 'Client' %>
                     <%= render 'user_role_row', user: @attorney.first, field_name: 'Attorney' %>
                     <%= render 'user_role_row', user: @paralegal.first, field_name: 'Paralegal' %>
-
                     <tr>
                         <th>  Case Type </th>
                         <td><%= @matters.kind%></td>
@@ -30,9 +28,9 @@
                         <td> <%= @matters.judge%> </td>
                     </tr>
                 </table>
-                <%= link_to "Timeline", timeline_path%>
+
                 <%if @current_user.role == "Client"%>
-                
+
                 <%else%>
                   <%= link_to "Update Matter", edit_matter_path%><hr>
                 <%end%>
@@ -71,6 +69,7 @@
             <div class="users">
                 <table ="table">
                     <h3>Events</h3>
+                    <h4><%= link_to "Timeline", timeline_path%></h4>
                     <table class="table">
                         <thead>
                             <tr>
@@ -95,8 +94,8 @@
                         </tr>
                     </tbody>
                 </table>
-
             </div>
-
         </div>
+      </div>
     </div>
+  </div>
