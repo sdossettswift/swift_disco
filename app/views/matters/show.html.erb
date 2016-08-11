@@ -10,50 +10,32 @@
                     <%= render 'user_role_row', user: @paralegal.first, field_name: 'Paralegal' %>
 
                     <tr>
-                        <th>
-                            Case Type
-                        </th>
-                        <td>
-                            <%= @matters.kind%>
-                        </td>
+                        <th>  Case Type </th>
+                        <td><%= @matters.kind%></td>
                     </tr>
                     <tr>
-                        <th>
-                            Case Status
-                        </th>
-                        <td>
-                            <%= @matters.status%>
-                        </td>
+                        <th> Case Status</th>
+                        <td>  <%= @matters.status%></td>
                     </tr>
                     <tr>
-                        <th>
-                            Opposing Party
-                        </th>
-                        <td>
-                            <%= @matters.opposing_party%>
-                        </td>
+                        <th>  Opposing Party </th>
+                        <td> <%= @matters.opposing_party%> </td>
                     </tr>
                     <tr>
-                        <th>
-                            Opposing Counsel
-                        </th>
-                        <td>
-                            <%= @matters.opposing_counsel%>
-                        </td>
+                        <th>  Opposing Counsel </th>
+                        <td><%= @matters.opposing_counsel%></td>
                     </tr>
                     <tr>
-                        <th>
-                            Judge
-                        </th>
-                        <td>
-                            <%= @matters.judge%>
-                        </td>
+                        <th> Judge </th>
+                        <td> <%= @matters.judge%> </td>
                     </tr>
                 </table>
-
-                <%= link_to "Update Matter", edit_matter_path%><hr>
                 <%= link_to "Timeline", timeline_path%>
-
+                <%if @current_user.role == "Client"%>
+                
+                <%else%>
+                  <%= link_to "Update Matter", edit_matter_path%><hr>
+                <%end%>
             </div>
         </div>
 

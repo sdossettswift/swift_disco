@@ -1,5 +1,12 @@
-<%=simple_form_for @user_matter do |f|%>
-<%= f.association :matter, label_method: :casename, value_method: :id%>
-<%= f.association :user, label_method: :full_name, value_method: :id %>
-<%= f.button :submit%>
+<%if @current_user.role !="Admin"%>
+<h1>"You Must Be An Administrator To Access The Admin Portal"</h1>
+
+  <%= link_to "Boy, Bye", root_path%>
+
+<%else%>
+  <%=simple_form_for @user_matter do |f|%>
+  <%= f.association :matter, label_method: :casename, value_method: :id%>
+  <%= f.association :user, label_method: :full_name, value_method: :id %>
+  <%= f.button :submit%>
+  <%end%>
 <%end%>

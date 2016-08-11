@@ -5,8 +5,6 @@ class UserMattersController < ApplicationController
     end
   end
 
-
-
   def new
     @user_matter = UserMatter.new
   end
