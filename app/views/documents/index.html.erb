@@ -4,6 +4,10 @@
       <table class="table">
         <thead>
           <tr>
+            <%if @current_user.role=="Attorney"%>
+            <th>Matter</th>
+            <%else%>
+            <%end%>
             <th>Document ID</th>
             <th>Category</th>
             <th>Issues</th>
@@ -15,11 +19,15 @@
         <tbody>
           <% @documents.each do |document| %>
             <tr>
+              <%if @current_user.role=="Attorney"%>
+              <td><%=document.matter_id%></td>
+              <%else%>
+              <%end%>
               <td><%= document.id %></td>
               <td><%= document.category %></td>
               <td><%= document.issues %></td>
               <td><%= document.status %></td>
-              <td><%= document.date %></td>
+              <td><%= document.sort_date %></td>
               <td><%= link_to "See Detail", document_path(id: document.id) %> </td>
             </tr>
           <% end %>

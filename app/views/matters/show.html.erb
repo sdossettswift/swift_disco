@@ -46,7 +46,7 @@
                             <th>Description</th>
                             <th>Category</th>
                             <th>Status</th>
-                            <th>Year</th>
+                            <th>Sort Date</th>
                             <th>Link</th>
                         </tr>
                     </thead>
@@ -57,7 +57,7 @@
                             <td> <%=document.description%> </td>
                             <td> <%=document.category%> </td>
                             <td> <%=document.status%> </td>
-                            <td> <%=document.year%> </td>
+                            <td> <%=document.sort_date%> </td>
                             <td> <%= link_to "Detail", document_path(id: document.id) %> </td>
                         </tr>
                         <%end%>

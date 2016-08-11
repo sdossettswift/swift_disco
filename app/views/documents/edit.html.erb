@@ -2,8 +2,11 @@
 <div class="container">
   <div class="card">
       <div class="col-md-6 col-md-offset-3">
-      <h1>Add Document</h1>
-        <%= render partial: 'client_form' %>
+        <% if @current_user.role =="Attorney" %>
+          <%= render partial: 'attorney_form' %>
+          <% else %>
+          <%= render partial: 'client_form' %>
+          <%end%>
     </div>
   </div>
 </div>

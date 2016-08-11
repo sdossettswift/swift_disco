@@ -1,33 +1,31 @@
 <% if @document.errors.any? %>
-  <div class="alert alert-danger" role="alert">
+<div class="alert alert-danger" role="alert">
     <% @document.errors.full_messages.each do |msg| %>
-      <%= msg %><br>
+    <%= msg %><br>
     <% end %>
-  </div>
+</div>
 <% end %>
 
 <div class="well">
-  <h1>Request Document</h1>
-
-<%= simple_form_for @document do |f| %>
-  <%= f.association :matter, label_method: :casename %>
-  <div class="form-group">
-    <%= f.label :document %>
-    <%= f.attachment_field :document, as: :file %>
-
-  </div>
-  <%= f.input :attorney_notes%>
-  <%= f.input :description%>
-  <%= f.input :sort_date,label: 'Sort Date', as: :date, order: [:month, :day,  :year], include_blank: true  %>
-  <div class="form-group">
-    <%= f.label :category %>
-    <%= f.collection_select :category, Document::CATEGORY, :to_s, :to_s, :include_blank => true%>
-  </div>
-  <div class="form-group">
-    <%= f.label :status %>
-    <%= f.collection_select :status, Document::STATUS, :to_s, :to_s%>
-  </div>
+    <h1>Request Document</h1>
+    <%= simple_form_for @document do |f| %>
+    <%= f.association :matter, label_method: :casename %>
+    <div class="form-group">
+        <%= f.label :document %>
+        <%= f.attachment_field :document, as: :file %>
+    </div>
+    <%= f.input :attorney_notes%>
+    <%= f.input :description%>
+    <%= f.input :sort_date,label: 'Sort Date', as: :date, order: [:month, :day,  :year], include_blank: true  %>
+    <div class="form-group">
+        <%= f.label :category %>
+        <%= f.collection_select :category, Document::CATEGORY, :to_s, :to_s, :include_blank => true%>
+    </div>
+    <div class="form-group">
+        <%= f.label :status %>
+        <%= f.collection_select :status, Document::STATUS, :to_s, :to_s%>
+    </div>
     <%= f.submit %>
-  </div>
+</div>
 <% end %>
 </div>

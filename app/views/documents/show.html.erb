@@ -15,7 +15,7 @@
       <h6>Category:<%=@document.category%></h6>
       <h6>Issues:<%=@document.issues%></h6>
       <h6>Status:<%=@document.status%></h6>
-      <h6>Date:<%=@document.date%></h6>
+      <h6>Date:<%=@document.sort_date%></h6>
 
       <h3>Client Comments</h3>
       <%= link_to 'Add Comment', edit_document_path(id: @document.id)%>
