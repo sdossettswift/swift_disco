@@ -1,49 +1,53 @@
-<div class="card">
-    <h3><%=@current_user.full_name%>
-        <small><%=@current_user.role%></small>
-    </h3><hr>
-    <div class="row">
-        <div class="col-xs-6">
-            <div class="card">
-                <h2>Matters</h2>
-                <hr>
-                <h4><%= link_to 'Display All Matters', admin_matters_path %></h4>
-                <h4><%= link_to 'Create Matter', new_admin_matter_path %></h4>
-            </div>
-        </div>
-        <div class="col-xs-6">
-            <div class="card">
-                <h2>User Matters</h2>
-                <hr>
-                <h4><%= link_to "View User Matter", admin_user_matters_path%></h4>
-                <h4><%= link_to "Create User Matter", new_admin_user_matter_path%></h4>
-            </div>
-        </div>
-    </div>
-    <div class="spacer"></div>
+<div class="outer-wrapper">
 
-    <div class="row">
-        <div class="col-xs-6">
-            <div class="card">
-                <h2>Users</h2><hr>
-                <h4><%= link_to 'Display All Users', admin_users_path %></h4>
-                <h4><%= link_to "Create User", new_admin_user_path%></h4>
-            </div>
-        </div>
 
-        <div class="col-xs-6">
-            <div class="card">
-                <h2>People</h2>
-                <hr>
-                <h4><%= link_to "All People", people_path%></h4>
-                <h4><%= link_to "Add Person", new_person_path%></h4>
-            </div>
-            <div class="spacer"></div>
-            <div class="spacer"></div>
-        </div>
+  <div class="card">
+      <h3><%=@current_user.full_name%>
+          <small><%=@current_user.role%></small>
+      </h3><hr>
+      <div class="row">
+          <div class="col-xs-6">
+              <div class="card">
+                  <h2>Matters</h2>
+                  <hr>
+                  <h4><%= link_to 'Display All Matters', admin_matters_path %></h4>
+                  <h4><%= link_to 'Create Matter', new_admin_matter_path %></h4>
+              </div>
+          </div>
+          <div class="col-xs-6">
+              <div class="card">
+                  <h2>User Matters</h2>
+                  <hr>
+                  <h4><%= link_to "View User Matter", admin_user_matters_path%></h4>
+                  <h4><%= link_to "Create User Matter", new_admin_user_matter_path%></h4>
+              </div>
+          </div>
+      </div>
+      <div class="spacer"></div>
 
-    </div>
+      <div class="row">
+          <div class="col-xs-6">
+              <div class="card">
+                  <h2>Users</h2><hr>
+                  <h4><%= link_to 'Display All Users', admin_users_path %></h4>
+                  <h4><%= link_to "Create User", new_admin_user_path%></h4>
+              </div>
+          </div>
 
-</div>
+          <div class="col-xs-6">
+              <div class="card">
+                  <h2>People</h2>
+                  <hr>
+                  <h4><%= link_to "All People", people_path%></h4>
+                  <h4><%= link_to "Add Person", new_person_path%></h4>
+              </div>
+              <div class="spacer"></div>
+              <div class="spacer"></div>
+          </div>
 
+      </div>
+
+  </div>
+
+  </div>
 </div>
