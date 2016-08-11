@@ -2,7 +2,7 @@ Rails.application.routes.draw do
     use_doorkeeper
 
     get 'documents/:id/upload' => 'documents#upload', as: :upload
-    
+
 
     resources :documents
     resources :events
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         resources :events
         post 'api/registrations' => 'api/registrations#create'
     end
-
+    get 'about' => 'welcome#about', as: :about
     get 'intake/case_analysis'
     get 'dashboard' => 'dashboard#show', as: :dashboard
     get 'admin/dashboard' => 'admin/dashboard#show', as: :admin_dashboard
