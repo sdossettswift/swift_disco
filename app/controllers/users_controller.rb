@@ -38,7 +38,7 @@ class UsersController < ApplicationController
      if @user.save
        # we should also sign them in
        session[:user_id] = @user.id
-       redirect_to root_path, notice: "Welcome!"
+       redirect_to dashboard_path, notice: "Welcome!"
      else
        render :new
      end
@@ -52,7 +52,7 @@ def update
   end
   @user = User.find_by id: params[:id]
     if @user.update(user_params)
-      redirect_to root_path, notice: "Profile Updated!"
+      redirect_to dashboard_path, notice: "Profile Updated!"
     else
       render :edit
     end

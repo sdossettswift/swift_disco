@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
     def create
       @photo = Photo.new(photo_params)
       if @photo.save
-        redirect_to root_path, notice: "Photo Added"
+        redirect_to photo_path(id: @photo.id), notice: "Photo Added"
         else
           render :new
         end
@@ -33,7 +33,7 @@ class PhotosController < ApplicationController
     def update
       @photo = Photo.find_by! id: params[:id]
       if @photo.update(photo_params)
-        redirect_to root_path, notice: "Photo Updated!"
+        redirect_to photo_path(id: @photo.id), notice: "Photo Updated!"
       else
         render :edit
       end

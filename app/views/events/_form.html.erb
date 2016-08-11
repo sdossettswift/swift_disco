@@ -13,10 +13,24 @@
     <%= f.input :headline, label: "Event", class: "form-control" %>
     <%= f.input :text %>
     <%= f.input :caption %>
-    <%= f.input :year %>
-    <%= f.input :month%>
-    <%= f.input :day%>
-    <%= f.input :hour%>
+    <%= f.input :year%>
+    <div class="form-group">
+        <%= f.label :month %>
+        <%= f.collection_select :month, Event::MONTH, :to_s, :to_s, :include_blank => true%>
+    </div>
+    <div class="form-group">
+        <%= f.label :day %>
+        <%= f.collection_select :day, Event::DAY, :to_s, :to_s, :include_blank => true%>
+    </div>
+    <div class="form-group">
+        <%= f.label :hour %>
+        <%= f.collection_select :hour, Event::HOUR, :to_s, :to_s, :include_blank => true%>
+    </div>
+    <div class="form-group">
+        <%= f.label :minute %>
+        <%= f.collection_select :minute, Event::MINUTE, :to_s, :to_s, :include_blank => true%>
+    </div>
+
     <%= f.input :url, label: "Media", class: "form-control"%>
     <!-- <div class="form-group">
         <%= f.label :thumbnail %>

@@ -13,7 +13,7 @@ class Admin::MattersController < ApplicationController
     def create
       @matters = Matter.create(matter_params)
       if @matters.save
-          redirect_to root_path, notice: "Matter Added!"
+          redirect_to admin_dashboard_path, notice: "Matter Added!"
       else render :new
       end
     end
@@ -38,7 +38,7 @@ class Admin::MattersController < ApplicationController
       @matters.judge = params[:matter][:judge]
       @matters.court = params[:matter][:court]
       if @matters.save
-          redirect_to root_path, notice: "Matter Added!"
+          redirect_to admin_dashboard_path, notice: "Matter Added!"
       else render :new
       end
     end
@@ -68,7 +68,7 @@ class Admin::MattersController < ApplicationController
     def update
        @matters = Matter.find_by id: params[:id]
        if @matter.update(matter_params)
-           redirect_to root_path, notice: "Matter Updated!"
+           redirect_to admin_dashboard_path, notice: "Matter Updated!"
        else render :update
        end
      end

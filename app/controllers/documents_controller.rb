@@ -18,7 +18,7 @@ class DocumentsController < ApplicationController
     def create
         @document = Document.new(document_params)
         if @document.save
-            redirect_to root_path, notice: 'Document Added'
+            redirect_to dashboard_path, notice: 'Document Added'
         else
             render :new
           end

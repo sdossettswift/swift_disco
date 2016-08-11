@@ -73,7 +73,7 @@ end
      @matters.court = params[:matter][:court]
      @matters.status = params[:matter][:status]
      if @matter.update
-         redirect_to root_path, notice: "Matter Updated!"
+         redirect_to dashboard_path, notice: "Matter Updated!"
      else render :update
      end
  end

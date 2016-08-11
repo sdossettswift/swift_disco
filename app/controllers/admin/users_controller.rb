@@ -26,7 +26,7 @@ class Admin::UsersController < ApplicationController
     def create
      @user = User.create(user_params)
        if @user.save
-         redirect_to root_path, notice: "User Added!"
+         redirect_to admin_dashboard_path, notice: "User Added!"
        else
          render :new
        end
@@ -36,7 +36,7 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     if @user.update(user_params)
-        redirect_to root_path, notice: "User Updated!"
+        redirect_to admin_dashboard_path, notice: "User Updated!"
       else
         render :edit
       end
