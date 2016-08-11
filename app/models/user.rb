@@ -5,7 +5,9 @@ class User < ApplicationRecord
     has_many :user_matters
     has_many :matters, through: :user_matters
     has_many :documents, through: :matters
-
+    has_many :people, through: :matters
+    has_many :events, through: :matters
+    
     scope :by_role, -> (role_name) { where(role: role_name) }
 
     gravtastic

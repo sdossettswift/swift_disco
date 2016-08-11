@@ -1,0 +1,25 @@
+<% if @person.errors.any? %>
+<div class="alert alert-danger" role="alert">
+    <% @person.errors.full_messages.each do |msg| %>
+    <%= msg %><br>
+    <% end %>
+</div>
+<% end %>
+
+<div class="well">
+    <%=simple_form_for @person do |f|%>
+    <%= f.association :matter, label_method: :casename %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :dob,label: 'Date of Birth', as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12,  order: [:month, :day,  :year]  %>
+    <%= f.input :gender %>
+    <%= f.input :details %>
+    <%= f.input :address1 %>
+    <%= f.input :address2 %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.button :submit %>
+    <%end%>
+</div>

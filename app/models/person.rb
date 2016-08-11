@@ -1,5 +1,6 @@
 class Person < ApplicationRecord
-    belongs_to :matter
     include Gravtastic
     gravtastic
+    belongs_to :matter
+    has_many :users, through: :matters
 end

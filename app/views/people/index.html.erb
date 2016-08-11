@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="container">
+        <h1>People</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Person ID</th>
+                    <th>Matter ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @people.each do |person|%>
+                <tr>
+                    <td>  <%=person.id%></td>
+                    <td>  <%=person.matter_id%></td>
+                    <td>  <%=person.first_name%>  </td>
+                    <td>  <%=person.full_name%> </td>
+                    <td>  <%=person.role%> </td>
+                    <td> <%=link_to 'More Info', person_path(id: person.id)%></td>
+                </tr>
+                <%end%>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
