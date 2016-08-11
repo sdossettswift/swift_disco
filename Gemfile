@@ -14,6 +14,7 @@ ruby '2.3.1'
   gem 'bootstrap-material-design', '~> 0.2.2'
   gem 'minitest-rails'
   gem 'simple_form'
+  gem 'font-awesome-sass'
 
   gem 'reform', '>= 2.2.0'
   gem 'reform-rails'
