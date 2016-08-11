@@ -18,8 +18,9 @@
                     <td>  <%=person.id%></td>
                     <td>  <%=person.matter_id%></td>
                     <td>  <%=person.first_name%>  </td>
-                    <td>  <%=person.full_name%> </td>
-                    <td>  <%=person.role%> </td>
+                    <td>  <%=person.last_name%> </td>
+                    <td>  <%=person.email%> </td>
+                    <td>  <%=person.details%> </td>
                     <td> <%=link_to 'More Info', person_path(id: person.id)%></td>
                 </tr>
                 <%end%>

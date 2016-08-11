@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card">
+        <div class="container">
+
+        <h1><%=@person.first_name%> <%=@person.last_name%></h1> <hr>
+        <ul>
+          <li>Date of Birth: <%= @person.dob %></li>
+          <li>Gender: <%= @person.gender %></li>
+          <li>Details: <%= @person.details %></li>
+          <li>Email: <%= @person.email %> </li>
+          <li>Phone: </li>  <%= @person.phone %></li>
+          <li>Address: <%= @person.address1 %></li>
+          <p> <%= @person.address2 %></p>
+          <%= @person.city %>   <%= @person.state %>
+        </ul>
+            <%= link_to "Update Details", edit_person_path%>
+        </div>
+    </div>
+</div>

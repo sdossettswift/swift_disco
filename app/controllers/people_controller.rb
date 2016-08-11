@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   end
 
   def index
-    @people = @current_user.people
+    @people = Person.all
   end
 
   def new
@@ -51,6 +51,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :dob, :gender, :attorney_notes, :client_notes, :law_office_notes, :details, :address1, :address2, :city, :state, :email, :phone, :matter_id => [])
+    params.require(:person).permit(:first_name, :last_name, :dob, :gender, :attorney_notes, :client_notes, :law_office_notes, :details, :address1, :address2, :city, :state, :email, :phone, :matter_id)
   end
 end
