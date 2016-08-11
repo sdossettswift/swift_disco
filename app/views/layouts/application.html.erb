@@ -10,7 +10,13 @@
 
     <body>
         <div class="body">
+          <%if @current_user && @current_user.role =="Admin"%>
+          <nav class="navbar navbar-inverse">
+            <%elsif @current_user &&@current_user.role ="Attorney"%>
+            <nav class="navbar navbar-info">
+            <%else%>
             <nav class="navbar navbar-default">
+              <%end%>
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
