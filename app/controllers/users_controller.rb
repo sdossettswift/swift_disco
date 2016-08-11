@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_action except: :new do
+    if @current_user.nil?
+      redirect_to sign_in_path, alert: "Please Sign In"
+    end
+  end
+
   def new
     @user = User.new
   end
@@ -39,8 +45,6 @@ class UsersController < ApplicationController
        render :new
      end
    end
-
-
 
 def update
   @user = User.find_by id: params[:id]

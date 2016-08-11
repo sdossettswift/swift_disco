@@ -2,6 +2,12 @@ class Api::EventsController < ApplicationController
   # before_action :doorkeeper_authorize!
 
   before_action do
+    if @current_user.role != "Admin"
+      redirect_to root_path, alert: "You Must Be An Administrator To Access The Admin Portal"
+    end
+  end
+
+  before_action do
     request.format = :json
   end
 

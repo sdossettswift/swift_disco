@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_action except: :show do
+  before_action do
     if @current_user.nil?
       redirect_to sign_in_path, alert: "Please Sign In"
     end

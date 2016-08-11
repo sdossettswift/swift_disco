@@ -1,4 +1,9 @@
 class MattersController < ApplicationController
+  before_action except: :new do
+    if @current_user.nil?
+      redirect_to sign_in_path, alert: "Please Sign In"
+    end
+  end
 
   def new
     @matters = Matter.new
