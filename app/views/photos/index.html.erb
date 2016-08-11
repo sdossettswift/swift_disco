@@ -1,2 +1,30 @@
-<h1>Photos#index</h1>
-<p>Find me in app/views/photos/index.html.erb</p>
+<div class="card">
+    <div class="container">
+        <h1>Photos</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Matter Id</th>
+                    <th>Photo Id</th>
+                    <th>Month</th>
+                    <th>Caption</th>
+                    <th>URL</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @photos.each do |photo|%>
+                <tr>
+                    <td><%=photo.matter_id%></td>
+                    <td><%=photo.photo_id%></td>
+                    <td><%=photo.sort_date%></td>
+                    <td><%=photo.caption%></td>
+                    <td><%= link_to "See Detail", photo_path(id: photo.id) %></td>
+                </tr>
+                <%end%>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>

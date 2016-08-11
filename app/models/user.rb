@@ -7,7 +7,8 @@ class User < ApplicationRecord
     has_many :documents, through: :matters
     has_many :people, through: :matters
     has_many :events, through: :matters
-    
+    has_many :photos, through: :matters
+
     scope :by_role, -> (role_name) { where(role: role_name) }
 
     gravtastic
