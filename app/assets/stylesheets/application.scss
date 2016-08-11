@@ -1,6 +1,12 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap-material-design';
+* {
+    font-family: 'Avenir', sans-serif;
+}
+h1 {
+    text-align: center;
+}
 .body {
     display: flex;
     min-height: 100vh;
@@ -11,12 +17,6 @@
 }
 .main {
     flex: 1 0 auto;
-}
-* {
-    font-family: 'Avenir', sans-serif;
-}
-h1 {
-    text-align: center;
 }
 .footer {
     text-align: center;
