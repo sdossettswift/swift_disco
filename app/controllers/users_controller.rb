@@ -1,24 +1,34 @@
 class UsersController < ApplicationController
-  before_action except: :new do
-    if @current_user.nil?
-      redirect_to sign_in_path, alert: "Please Sign In"
-    end
-  end
 
   def new
     @user = User.new
   end
 
   def index
+    before_action do
+      if @current_user.nil?
+        redirect_to sign_in_path, alert: "Please Sign In"
+      end
+    end
     @users = User.all
   end
 
 
   def show
+    before_action do
+      if @current_user.nil?
+        redirect_to sign_in_path, alert: "Please Sign In"
+      end
+    end
     @user = User.find_by id: params[:id]
   end
 
   def edit
+    before_action do
+      if @current_user.nil?
+        redirect_to sign_in_path, alert: "Please Sign In"
+      end
+    end
     @user = User.find_by id: params[:id]
   end
 
@@ -47,6 +57,11 @@ class UsersController < ApplicationController
    end
 
 def update
+  before_action do
+    if @current_user.nil?
+      redirect_to sign_in_path, alert: "Please Sign In"
+    end
+  end
   @user = User.find_by id: params[:id]
   @user.email = params[:user][:email]
   @user.role = params[:user][:role]
