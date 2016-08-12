@@ -72,7 +72,7 @@ end
      @matters.judge = params[:matter][:judge]
      @matters.court = params[:matter][:court]
      @matters.status = params[:matter][:status]
-     if @matter.update
+     if @matters.update
          redirect_to dashboard_path, notice: "Matter Updated!"
      else render :update
      end
