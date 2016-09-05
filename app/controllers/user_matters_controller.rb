@@ -16,11 +16,16 @@ class UserMattersController < ApplicationController
       else
         render :new
       end
-    end
+  end
 
 
   def update
-    
+    @user_matter = UserMatter.find_by id: params[:id]
+      if @user_matter.update(user_matter_params)
+          redirect_to dashboard_path(id: @user_matter.id), notice: 'User-Matter Updated!'
+      else
+          render :edit
+     end
   end
 
   def index
