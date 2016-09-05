@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
     get 'documents/:id/upload' => 'documents#upload', as: :upload
 
-
     resources :documents
     resources :events
     resources :photos
