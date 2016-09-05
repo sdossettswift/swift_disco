@@ -31,7 +31,7 @@ class DocumentsController < ApplicationController
     def update
         @document = Document.find_by id: params[:id]
 
-        if @document.update(params.require(:document).permit(:description, :title,  :document, :document_id, :matter_id, :description, :category, :year, :month, :day, :client_notes, :attorney_notes, :law_office_notes, :year, :hot_doc, :issues, :sort_date))
+        if @document.update(document_params)
             redirect_to document_path(id: @document.id), notice: 'Document Updated!'
         else
             render :edit
@@ -41,7 +41,7 @@ class DocumentsController < ApplicationController
     def upload
         @document = Document.find_by id: params[:id]
 
-        if @document.update(params.require(:document).permit(:description, :title, :document, :document_id, :matter_id, :description, :category, :year, :month, :day, :client_notes, :attorney_notes, :law_office_notes, :year, :hot_doc, :issues, :sort_date))
+        if @document.update(document_params)
             redirect_to document_path(id: @document.id), notice: 'Document Uploaded!'
         else
             render :edit
