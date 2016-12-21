@@ -1,1 +1,5 @@
+# [SWIFT DISCOVERY](https://www.swiftdiscovery.com)
+![landing](https://github.com/sdossettswift/swift_disco/blob/master/Swift_Disco.png)
+![technology](https://github.com/sdossettswift/swift_disco/blob/master/Swift_Disco-tech.png)
+![attorney dashboard](https://github.com/sdossettswift/swift_disco/blob/master/Swift_Disco-attorney-dashboard.png)
 ![timeline](https://github.com/sdossettswift/swift_disco/blob/master/giphy%20(9).gif)
